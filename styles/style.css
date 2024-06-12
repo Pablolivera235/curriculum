@@ -1,0 +1,90 @@
+@font-face {
+    font-family: 'bar';
+    src: url("../fonts/LibreBarcode128Text-Regular.ttf");
+}
+
+@font-face {
+    font-family: 'name';
+    src: url("../fonts/DancingScript-VariableFont_wght.ttf");
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+nav{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    position: absolute;
+    right: 1%;
+    top: 37%;
+    border: solid;
+    border-radius: 1rem;
+    height: 10.5rem;
+    overflow: hidden;
+    width: 2.6rem;
+    
+}
+
+nav>div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    list-style: none;
+}
+
+nav>div>div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .5rem;
+    border-radius: .5rem;
+}
+
+
+
+.container_h{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.container_h>h1{
+    font-family:'name';
+    font-size: 7rem;
+}
+
+body>h1{
+    position: absolute;
+    bottom: .7rem;
+    left: 1rem;
+    font-family: 'bar';
+    font-size: 1.5rem;
+}
+
+img{
+   width: 1.5rem;
+}
+
+.study{
+    width: 1.7rem;
+}
+
+.knoledge{
+    width: 1.5rem;
+}
+
+.intro{
+    width: 1.5rem;
+}
