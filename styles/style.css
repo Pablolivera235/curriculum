@@ -52,7 +52,7 @@ nav>div>div{
 
 
 
-.container_h{
+#container3D{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -87,4 +87,47 @@ img{
 
 .intro{
     width: 1.5rem;
+}
+
+canvas{
+margin-left: -10rem;
+}
+
+.arrow_d{
+    rotate: -90deg;
+    position: absolute;
+    bottom: .7rem;
+    left: 48%;
+    width: 2.5rem;
+    animation-name: flecha;
+    animation-duration: 2s;
+    animation-iteration-count:infinite;
+}
+
+@keyframes flecha {
+  0% {bottom: .7rem;} 
+  50% {bottom: 2rem;} 
+  100% {bottom: .7rem;}
+  }
+
+.container_int{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.cont_pic_int{
+    margin-top: -12rem;
+    width: 27vh;
+    height: 34vh;
+    border: solid;
+}
+
+.desc_int{
+    border: solid;
+    width: 50vw;
+    height: 40vh;
+    margin-left: 6rem;
 }
