@@ -17,13 +17,25 @@
     </nav>
 
     <div class="container_int">
-        <div class="cont_pic_int"> <img src="../img/flecha-izquierda.png" alt=""> </div>
+        <div class="cont_pic_int"> <img src="../img/perfil.jpg" alt=""> </div>
+        <div class="int">
+        <h2> - Introducción - </h2>
         <div class="desc_int"> </div>
+        </div>
     </div>
 
     <h1> Pablo Olivera </h1>
- 
+
+    <div id="TDcontainer" style="position: absolute; left: -15rem;"></div>
+  
     <script src="https://threejs.org/build/three.js"></script>
-    <script src="../scripts/script.js"></script>
+    <script src="../scripts/script.js" type="module"></script>
+
+     <!-- este script crea el objeto 3D -->
+    <script type="module">
+     import { tresD } from "../scripts/script.js";
+    //tresD( en nombre va el nombre del gtlf ej: 'nombre', y aquí el del id del div donde va el objeto ej: 'container3D', y aqui va el tamaño ej: 2);
+    tresD('musica', 'TDcontainer', 10);
+    </script>
 </body>
 </html>

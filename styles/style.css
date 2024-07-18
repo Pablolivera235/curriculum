@@ -123,11 +123,45 @@ margin-left: -10rem;
     width: 27vh;
     height: 34vh;
     border: solid;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.cont_pic_int>img{
+    width: 100%;
+    height: 100%;
 }
 
 .desc_int{
     border: solid;
     width: 50vw;
-    height: 40vh;
-    margin-left: 6rem;
+    height: 48vh;
+    margin-left: 5rem;
+    border-radius: 1rem;
+}
+
+#TDcontainer{
+    animation-name: music;
+    animation-duration: 2s;
+    animation-iteration-count:infinite;
+}
+
+@keyframes music {
+    0% {bottom: -15rem;} 
+    50% {bottom: -13rem;} 
+    100% {bottom: -15rem;}
+    }
+
+.int{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+}
+
+h2{
+    margin-left: 5rem;
+    padding: 2rem;
+    font-family: 'name';
+    font-weight: bold;
+    font-size: 3rem;
 }
