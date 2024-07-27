@@ -11,6 +11,7 @@
 *{
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
 body{
@@ -133,6 +134,9 @@ margin-left: -10rem;
 }
 
 .desc_int{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border: solid;
     width: 50vw;
     height: 48vh;
@@ -164,4 +168,15 @@ h2{
     font-family: 'name';
     font-weight: bold;
     font-size: 3rem;
+}
+
+.nimg{
+    display: flex;
+    transition: all 0.5s ease-in-out;
+    width: 10rem;
+
+}
+
+.ocultar{
+    display: none;
 }

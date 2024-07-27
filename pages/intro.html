@@ -20,7 +20,7 @@
         <div class="cont_pic_int"> <img src="../img/perfil.jpg" alt=""> </div>
         <div class="int">
         <h2> - Introducción - </h2>
-        <div class="desc_int"> </div>
+        <div id="desc_int" class="desc_int"> <p> Hola!, Soy Pablo Olivera, tengo 22 años, soy <span class="uy"> Uruguayo </span>, me gusta el futbol, la musica y programar, soy muy fan de los videojuegos </p> </div>
         </div>
     </div>
 
@@ -30,12 +30,44 @@
   
     <script src="https://threejs.org/build/three.js"></script>
     <script src="../scripts/script.js" type="module"></script>
+    <script src="../scripts/script.js"> </script>
 
      <!-- este script crea el objeto 3D -->
     <script type="module">
      import { tresD } from "../scripts/script.js";
     //tresD( en nombre va el nombre del gtlf ej: 'nombre', y aquí el del id del div donde va el objeto ej: 'container3D', y aqui va el tamaño ej: 2);
     tresD('musica', 'TDcontainer', 10);
+    </script>
+
+    <script>
+        function imgspawn(x) {
+        const uy = document.querySelector('.uy');
+        const div = document.getElementById('desc_int');
+        const nimg = document.createElement('img');
+        var y = x;
+
+         nimg.src = `../img/${y}.jpg`;
+
+         div.appendChild(nimg);
+         nimg.classList.add('nimg')
+         nimg.classList.add('ocultar');
+
+         uy.addEventListener('mouseenter', () =>{
+            nimg.classList.remove('ocultar');
+
+            setTimeout(() =>{
+                nimg.classList.add('ocultar');},1500);
+         });
+        
+        
+         /*uy.addEventListener('mouseleave', () =>{
+            nimg.style.display='none'; 
+         }); */
+
+         console.log('funcional');
+        }
+
+        imgspawn('perfil');
     </script>
 </body>
 </html>
