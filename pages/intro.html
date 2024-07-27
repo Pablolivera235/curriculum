@@ -36,7 +36,7 @@
     <script type="module">
      import { tresD } from "../scripts/script.js";
     //tresD( en nombre va el nombre del gtlf ej: 'nombre', y aquí el del id del div donde va el objeto ej: 'container3D', y aqui va el tamaño ej: 2);
-    tresD('musica', 'TDcontainer', 10);
+    tresD('musica', 'TDcontainer', 10, 10, 20);
     </script>
 
     <script>
@@ -46,7 +46,7 @@
         const nimg = document.createElement('img');
         var y = x;
 
-         nimg.src = `../img/${y}.jpg`;
+         nimg.src = `../img/${y}`;
 
          div.appendChild(nimg);
          nimg.classList.add('nimg')
@@ -67,7 +67,7 @@
          console.log('funcional');
         }
 
-        imgspawn('perfil');
+        imgspawn('uruguay.png');
     </script>
 </body>
 </html>

@@ -3,7 +3,7 @@ import { OrbitControls } from "https://cdn.skypack.dev/three@0.129.0/examples/js
 import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js";
 
 //Agregar ojetos en 3D
-export function tresD(h, y, j){
+export function tresD(n, y, j, w, h){
 
   console.log(`Function tresD called with arguments: ${h}, ${y}`);
 
@@ -18,7 +18,7 @@ export function tresD(h, y, j){
   
   const loader = new GLTFLoader();
 
-  var obj = h;
+  var obj = n;
   var iden = y;
   let dist = j;
   
@@ -64,18 +64,24 @@ export function tresD(h, y, j){
     }
     renderer.render(scene, camera);
   }
+
+  var width = w;
+  var height = h;
   
   window.addEventListener("resize", function () {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(width, height);
   });
   
   animate();
   console.log(obj);
   console.log(iden);
+  console.log(width);
+  console.log(height);
 }
 
-//tresD( en nombre va el nombre del gtlf ej: 'nombre', y aquí el del id del div donde va el objeto ej: 'container3D', y aqui va el tamaño ej: 2);
+//tresD( en nombre va el nombre del gtlf ej: 'nombre', y aquí el del id del div donde va el objeto ej: 'container3D', y aqui va el tamaño ej: 2), width ej:2000, height ej:4000;
 
 // Función para el index
+
