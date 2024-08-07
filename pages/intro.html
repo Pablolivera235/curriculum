@@ -20,7 +20,7 @@
         <div class="cont_pic_int"> <img src="../img/perfil.jpg" alt=""> </div>
         <div class="int">
         <h2> - Introducción - </h2>
-        <div id="desc_int" class="desc_int"> <p> Hola!, Soy Pablo Olivera, tengo 22 años, soy <span class="uy"> Uruguayo </span>, me gusta el futbol, la musica y programar, soy muy fan de los videojuegos </p> </div>
+        <div id="desc_int" class="desc_int"> <p id="press"> Hola!, Soy Pablo Olivera, tengo 22 años, soy <span class="uy"> Uruguayo </span>, me gusta el futbol, la musica y programar, soy muy fan de los videojuegos </p> </div>
         </div>
     </div>
 
@@ -43,6 +43,7 @@
         function imgspawn(x) {
         const uy = document.querySelector('.uy');
         const div = document.getElementById('desc_int');
+        const press = document.getElementById('press');
         const nimg = document.createElement('img');
         var y = x;
 
@@ -54,20 +55,28 @@
 
          uy.addEventListener('mouseenter', () =>{
             nimg.classList.remove('ocultar');
+            press.classList.add('ocultar');
 
             setTimeout(() =>{
-                nimg.classList.add('ocultar');},1500);
+                nimg.classList.add('ocultar');},1500
+            );
+
+            setTimeout(() =>{
+                press.classList.remove('ocultar');},1500
+            );
          });
         
-        
-         /*uy.addEventListener('mouseleave', () =>{
+         console.log('funcional');
+
+         /* no funcionó: 
+         uy.addEventListener('mouseleave', () =>{
             nimg.style.display='none'; 
          }); */
-
-         console.log('funcional');
         }
 
         imgspawn('uruguay.png');
+        imgspawn('auf.png');
+        imgspawn('mate.png');
     </script>
 </body>
 </html>
