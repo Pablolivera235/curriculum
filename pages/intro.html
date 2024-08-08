@@ -20,28 +20,28 @@
         <div class="cont_pic_int"> <img src="../img/perfil.jpg" alt=""> </div>
         <div class="int">
         <h2> - Introducción - </h2>
-        <div id="desc_int" class="desc_int"> <p id="press"> Hola!, Soy Pablo Olivera, tengo 22 años, soy <span class="uy"> Uruguayo </span>, me gusta el futbol, la musica y programar, soy muy fan de los videojuegos </p> </div>
+        <div id="desc_int" class="desc_int"> <p id="press"> Hola!, soy Pablo Olivera, tengo 22 años. <br> Soy <span class="uy"> Uruguayo </span>, me gusta el futbol, la <span class="music"> musica </span>y la programación <br> soy muy fan de los <span class="games">videojuegos</span> </p> </div>
         </div>
     </div>
 
     <h1> Pablo Olivera </h1>
+    <div class="popup"> Prueba hacer clic en las palabras <span style="font-weight: bolder;"> Resaltadas </span></div>
+    <div class="popup2"> Si te interesaron mis gustos clickea de nuevo</div>
 
-    <div id="TDcontainer" style="position: absolute; left: -15rem;"></div>
+   
   
     <script src="https://threejs.org/build/three.js"></script>
     <script src="../scripts/script.js" type="module"></script>
     <script src="../scripts/script.js"> </script>
 
-     <!-- este script crea el objeto 3D -->
-    <script type="module">
-     import { tresD } from "../scripts/script.js";
-    //tresD( en nombre va el nombre del gtlf ej: 'nombre', y aquí el del id del div donde va el objeto ej: 'container3D', y aqui va el tamaño ej: 2);
-    tresD('musica', 'TDcontainer', 10, 10, 20);
-    </script>
 
     <script>
-        function imgspawn(x) {
-        const uy = document.querySelector('.uy');
+        //Esta funcion crea una imagen si se hace clic en una palabra
+        //Nota: "ur" es opcional, es para cargar un url al cliquear una imagen popup
+        
+        function imgspawn(x, r, ur) {
+        var l = r;
+        const uy = document.querySelector(`.${l}`);
         const div = document.getElementById('desc_int');
         const press = document.getElementById('press');
         const nimg = document.createElement('img');
@@ -53,7 +53,22 @@
          nimg.classList.add('nimg')
          nimg.classList.add('ocultar');
 
-         uy.addEventListener('mouseenter', () =>{
+         if(l == 'uy'){
+            nimg.classList.add('redondear');
+         }
+
+         if(l == 'games' || l == 'music'){
+            nimg.classList.add('games');
+         }
+         
+         nimg.addEventListener('click', () =>{
+            if(ur != null){
+            url = ur;
+            window.open(url);
+            }
+         });
+
+         uy.addEventListener('click', () =>{
             nimg.classList.remove('ocultar');
             press.classList.add('ocultar');
 
@@ -67,6 +82,9 @@
          });
         
          console.log('funcional');
+         console.log(l);
+         console.log(r);
+
 
          /* no funcionó: 
          uy.addEventListener('mouseleave', () =>{
@@ -74,9 +92,23 @@
          }); */
         }
 
-        imgspawn('uruguay.png');
-        imgspawn('auf.png');
-        imgspawn('mate.png');
+        //imgspawn('uruguay.png','uy'); donde 'uruguay.png' es la imagen, y 'uy' es la clase del span donde hay que poner el mouse para que aparezca
+       
+        // Palablra: Uruguayo{
+        imgspawn('uruguay.png','uy');
+        imgspawn('auf.png','uy');
+        imgspawn('mate.png','uy');
+        //}
+
+        //Palabra: Juegos{
+        imgspawn('games.png','games', 'https://profile.playstation.com/Pablolivera-235');       
+        //}
+
+        //Palabra: Música{
+        imgspawn('songs.png','music', 'https://youtube.com/playlist?list=PLT-RmV3byZfoAHkZdEjTOTenFPGxh9xnX&si=rPjdgoZz9tvp1D2q');
+        //}
+
+        //Nota: probar z-index negativos para los objetos 3D, así no interfieren con el resto de onjetos en pantalla
     </script>
 </body>
 </html>

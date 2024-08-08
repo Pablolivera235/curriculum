@@ -74,6 +74,31 @@ body>h1{
     font-size: 1.5rem;
 }
 
+.popup, .popup2{
+    position: absolute;
+    bottom: 1rem;
+    right: 100rem;
+    font-size: 1rem;
+    border: solid;
+    padding: .5rem;
+    border-radius: .5rem;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    animation-name: popup;
+    animation-duration: 8s;
+}
+
+.popup2{
+    animation-delay: 5.5s;
+}
+
+
+@keyframes popup {
+    0% {right: -50rem;} 
+    40% {right: 1rem;} 
+    70% {right: 1rem;} 
+    100% {right: -50rem;}
+    }
+
 img{
    width: 1.5rem;
 }
@@ -120,7 +145,7 @@ margin-left: -10rem;
 }
 
 .cont_pic_int{
-    margin-top: -12rem;
+    margin-top: 6.5rem;
     width: 27vh;
     height: 34vh;
     border: solid;
@@ -137,11 +162,13 @@ margin-left: -10rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
     border: solid;
     width: 50vw;
     height: 48vh;
     margin-left: 5rem;
     border-radius: 1rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 #TDcontainer{
@@ -174,8 +201,21 @@ h2{
     display: flex;
     transition: all 0.5s ease-in-out;
     width: 10rem;
-
 }
+
+.redondear{
+    border-radius: 10rem;
+}
+
+.games{
+    width: 50%;
+}
+
+.uy, .games, .music{
+    font-weight: bolder;
+    font-style: italic;
+}
+
 
 .ocultar{
     display: none;
