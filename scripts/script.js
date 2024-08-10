@@ -8,7 +8,7 @@ export function tresD(n, y, j, w, h){
   console.log(`Function tresD called with arguments: ${h}, ${y}`);
 
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+  const camera = new THREE.PerspectiveCamera(78, window.innerWidth / window.innerHeight, 0.1, 1000);
   
   let object;
   
@@ -21,6 +21,51 @@ export function tresD(n, y, j, w, h){
   var obj = n;
   var iden = y;
   let dist = j;
+  var width = w;
+  var height = h;
+
+  if(width == window.innerWidth && height == window.innerHeight){
+  
+    window.addEventListener("resize", function () {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setPixelRatio(window.devicePixelRatio);
+      const widthj = window.innerWidth;
+      
+      if(obj == 'myname'){
+
+        if (widthj <= 874) {
+          dist = 3;
+
+        if (widthj <= 782) {
+          dist = 4;
+
+          if (widthj <= 540) {
+            dist = 5;
+
+            if (widthj <= 393) {
+              dist = 6;
+            } 
+
+          } 
+        } 
+      }
+
+        else {
+          dist = 2;
+        }
+
+        camera.position.z = objToRender === "models" ? dist : 500;
+
+      }
+
+      console.log(widthj);
+      console.log(dist);
+    });
+  }
+
+  console.log(dist);
   
   loader.load(
     `../models/${obj}.gltf`,
@@ -37,8 +82,8 @@ export function tresD(n, y, j, w, h){
   );
 
   const renderer = new THREE.WebGLRenderer({ alpha: true });
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  
+  renderer.setSize(w, h); 
+
   document.getElementById(iden).appendChild(renderer.domElement);
 
 
@@ -65,16 +110,9 @@ export function tresD(n, y, j, w, h){
     renderer.render(scene, camera);
   }
 
-  var width = w;
-  var height = h;
-  
-  window.addEventListener("resize", function () {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(width, height);
-  });
-  
+
   animate();
+  console.log(dist);
   console.log(obj);
   console.log(iden);
   console.log(width);
