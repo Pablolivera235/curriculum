@@ -63,9 +63,40 @@ export function tresD(n, y, j, w, h){
       console.log(widthj);
       console.log(dist);
     });
-  }
 
-  console.log(dist);
+    window.onload = function (){
+
+      const widtho = window.innerWidth;
+      
+      if(obj == 'myname'){
+
+        if (widtho <= 874) {
+          dist = 3;
+
+        if (widtho <= 782) {
+          dist = 4;
+
+          if (widtho <= 540) {
+            dist = 5;
+
+            if (widtho <= 393) {
+              dist = 6;
+            } 
+
+          } 
+        } 
+      }
+
+        else {
+          dist = 2;
+        }
+
+        camera.position.z = objToRender === "models" ? dist : 500;
+    }
+
+  }
+}
+
   
   loader.load(
     `../models/${obj}.gltf`,
@@ -122,4 +153,3 @@ export function tresD(n, y, j, w, h){
 //tresD( en nombre va el nombre del gtlf ej: 'nombre', y aquí el del id del div donde va el objeto ej: 'container3D', y aqui va el tamaño ej: 2), width ej:2000, height ej:4000;
 
 // Función para el index
-
