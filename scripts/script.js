@@ -153,3 +153,4 @@ export function tresD(n, y, j, w, h){
 //tresD( en nombre va el nombre del gtlf ej: 'nombre', y aquí el del id del div donde va el objeto ej: 'container3D', y aqui va el tamaño ej: 2), width ej:2000, height ej:4000;
 
 // Función para el index
+
