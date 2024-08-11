@@ -145,7 +145,6 @@ margin-left: -10rem;
 }
 
 .cont_pic_int{
-    margin-top: 6.5rem;
     height: 34vh;
     border: solid;
     border-radius: 1rem;
@@ -225,6 +224,7 @@ h2{
 
     .desc_int{
         margin-left: 1.1rem;
+        margin-bottom: 4rem;
     }
 
     .container_int{
@@ -233,6 +233,10 @@ h2{
 
     h2{
         margin-left: 0rem;
+    }
+
+    .cont_pic_int{
+        margin-top: 4rem;
     }
 
 }
@@ -256,5 +260,9 @@ h2{
 
     h2{
         margin-left: 5rem;
+    }
+
+    .cont_pic_int{
+        margin-top: 6.5rem;
     }
 }
