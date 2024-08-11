@@ -45,7 +45,7 @@ export function tresD(n, y, j, w, h){
             dist = 3.5;
 
             if (widthj <= 393) {
-              dist = 3.5;
+              dist = 5;
             } 
 
           } 
@@ -80,7 +80,7 @@ export function tresD(n, y, j, w, h){
             dist = 3.5;
 
             if (widtho <= 393) {
-              dist = 3.5;
+              dist = 5;
             } 
 
           } 
