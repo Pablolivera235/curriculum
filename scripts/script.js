@@ -36,16 +36,16 @@ export function tresD(n, y, j, w, h){
       if(obj == 'myname'){
 
         if (widthj <= 874) {
-          dist = 2.5;
-
-        if (widthj <= 782) {
           dist = 3;
 
+        if (widthj <= 782) {
+          dist = 4;
+
           if (widthj <= 540) {
-            dist = 3.5;
+            dist = 5;
 
             if (widthj <= 393) {
-              dist = 5;
+              dist = 6;
             } 
 
           } 
@@ -71,16 +71,16 @@ export function tresD(n, y, j, w, h){
       if(obj == 'myname'){
 
         if (widtho <= 874) {
-          dist = 2.5;
-
-        if (widtho <= 782) {
           dist = 3;
 
+        if (widtho <= 782) {
+          dist = 4;
+
           if (widtho <= 540) {
-            dist = 3.5;
+            dist = 5;
 
             if (widtho <= 393) {
-              dist = 5;
+              dist = 6;
             } 
 
           } 
