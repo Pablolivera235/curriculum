@@ -80,6 +80,7 @@ body>h1{
     font-size: 1rem;
     border: solid;
     padding: .5rem;
+    margin-top: -.5rem;
     border-radius: .5rem;
     font-family:Georgia, 'Times New Roman', Times, serif;
     animation-name: popup;
@@ -216,6 +217,17 @@ h2{
     display: none;
 }
 
+.popup_container{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: .1rem;
+    width: 25rem;
+    height: 2rem;
+    padding: .5rem;
+}
+
 @media (max-width: 768px){
     .popup, .popup2{
         top: 1rem;
@@ -243,7 +255,17 @@ h2{
 @media (max-width: 620px){
 
     .desc_int{
-        margin-left: 4.6rem;
+        margin-left: 2.5rem;
+        height: 9rem;
+        padding: 2rem;
+    }
+
+    .cont_pic_int{
+        margin-top: 1rem;
+    }
+
+    .nimg{
+        width: 16rem;
     }
 
 }
@@ -264,4 +286,11 @@ h2{
     .cont_pic_int{
         margin-top: 6.5rem;
     }
+
+    .popup_container{
+    margin-top: 1rem;
+    height: 3rem;
+    bottom: 1rem;
+    }
+
 }
