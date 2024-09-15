@@ -294,3 +294,125 @@ h2{
     }
 
 }
+
+.container-estudios{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border:solid;
+    width: 100%;
+    height: 100vh;
+}
+
+.container-estudios>div{
+    display: flex;
+    align-items: center;
+    border: solid;
+    width: 100%;
+    height: 50vh;
+    animation-name: calibracion;
+    animation-duration: 5s;
+}
+
+.container-estudios>div>img{
+    width: 30%;
+    margin-left: 5rem;
+    animation-name: move-logo;
+    animation-duration: 5s;
+}
+
+.utu{
+    background-color: rgb(28, 28, 209);
+}
+
+.jap{
+    background-color: rgb(130, 55, 140, 255);
+}
+
+.nav-estudios{
+    background-color: white;
+}
+
+
+
+@keyframes move-logo {
+    0% {
+        position: absolute;
+        width: 10%;
+        left: 35%;
+       } 
+    50% {
+        position: absolute;
+        width: 30%;
+        left: 30%;
+        } 
+    100% {
+        position: absolute;
+        left: .1rem;
+         }
+    }
+
+    .utu>div{
+       /* border: solid; */
+        width: fit-content;
+        height: fit-content;
+        margin-left: 12%;
+    }
+
+    .jap>div{
+        /* border: solid; */
+         width: fit-content;
+         height: fit-content;
+         margin-left: 23%;
+     }
+
+    div>ul{
+        display: flex;
+        flex-direction: row;
+        padding: 1rem;
+
+    }
+    
+
+    div>ul>li{
+        color: white;
+        font-weight: bolder;
+        font-family: Arial, Helvetica, sans-serif;
+        animation-name: move-cursos;
+        animation-duration: 9s;
+    }
+
+    @keyframes move-cursos {
+        0% {
+            font-size: 0rem;
+           }
+        
+        55%{
+            font-size: 0rem;
+           }
+        }
+
+    #materias{
+        font-size: .8rem;
+    }
+
+    #materiasinfo{
+        font-size: .8rem;
+    }
+
+    #materiasjap{
+        font-size: .8rem;
+        color: white;
+        font-weight: bolder;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .mostrar{
+        display: none;
+    }
+
+    .jap>div>ul{
+        display: flex;
+        flex-direction: column;
+    }
+    
