@@ -228,73 +228,6 @@ h2{
     padding: .5rem;
 }
 
-@media (max-width: 768px){
-    .popup, .popup2{
-        top: 1rem;
-    }
-
-    .desc_int{
-        margin-left: 1.1rem;
-        margin-bottom: 4rem;
-    }
-
-    .container_int{
-        flex-direction: column;
-    }
-
-    h2{
-        margin-left: 0rem;
-    }
-
-    .cont_pic_int{
-        margin-top: 4rem;
-    }
-
-}
-
-@media (max-width: 620px){
-
-    .desc_int{
-        margin-left: 2.5rem;
-        height: 9rem;
-        padding: 2rem;
-    }
-
-    .cont_pic_int{
-        margin-top: 1rem;
-    }
-
-    .nimg{
-        width: 16rem;
-    }
-
-}
-
-@media (min-width: 768px){
-    .popup, .popup2{
-        bottom: 1rem;
-    }
-
-    .desc_int{
-        margin-left: 5rem;
-    }
-
-    h2{
-        margin-left: 5rem;
-    }
-
-    .cont_pic_int{
-        margin-top: 6.5rem;
-    }
-
-    .popup_container{
-    margin-top: 1rem;
-    height: 3rem;
-    bottom: 1rem;
-    }
-
-}
-
 .container-estudios{
     display: flex;
     align-items: center;
@@ -415,4 +348,98 @@ h2{
         display: flex;
         flex-direction: column;
     }
+
+    @media(max-width: 922px){
+        #materias, #materiasinfo, #materiasjap{
+            font-size: .5rem;
+        }
+
+        div>ul{
+            font-size: .8rem;
+        }
+    }
+
+
+    @media (max-width: 768px){
+        .popup, .popup2{
+            top: 1rem;
+        }
     
+        .desc_int{
+            margin-left: 1.1rem;
+            margin-bottom: 4rem;
+        }
+    
+        .container_int{
+            flex-direction: column;
+        }
+    
+        h2{
+            margin-left: 0rem;
+        }
+    
+        .cont_pic_int{
+            margin-top: 4rem;
+        }
+    
+    }
+
+    @media (min-width: 768px){
+        .popup, .popup2{
+            bottom: 1rem;
+        }
+    
+        .desc_int{
+            margin-left: 5rem;
+        }
+    
+        h2{
+            margin-left: 5rem;
+        }
+    
+        .cont_pic_int{
+            margin-top: 6.5rem;
+        }
+    
+        .popup_container{
+        margin-top: 1rem;
+        height: 3rem;
+        bottom: 1rem;
+        }
+    
+    }
+    
+    
+    @media (max-width: 620px){
+    
+        .desc_int{
+            margin-left: 2.5rem;
+            height: 9rem;
+            padding: 2rem;
+        }
+    
+        .cont_pic_int{
+            margin-top: 1rem;
+        }
+    
+        .nimg{
+            width: 16rem;
+        }
+    
+    }
+
+    @media (max-width: 580px){
+        .container-estudios>div>img{
+            width: 30%;
+            margin-left: 2rem;
+        }
+
+        div>ul{
+            font-size: .4rem;
+        }
+
+        #materias, #materiasinfo, #materiasjap{
+            font-size: .3rem;
+        }
+    
+    }
