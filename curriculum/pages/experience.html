@@ -1,0 +1,116 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pablo Olivera | Estudios</title>
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+
+    <nav class="nav-estudios">
+        <div>
+        <div><img onclick="location.href='../index.html'" onmouseenter="this.src='../img/icons8-home-48bk.png'" onmouseout="this.src='../img/icons8-home-48.png'"src="../img/icons8-home-48.png" alt=""></div>
+        <div><img class="intro" onclick="location.href='../pages/intro.html'" onmouseenter="this.src='../img/icons8-presentation-50bk.png'" onmouseout="this.src='../img/icons8-presentation-50.png'"src="../img/icons8-presentation-50.png" alt=""></div>
+        <div><img class="study" onclick="location.href='../pages/experience.html'" onmouseenter="this.src='../img/icons8-education-48bk.png'" src="../img/icons8-education-48bk.png" alt=""></div>
+        <div><img class="knoledge" onclick="location.href='../pages/knoledge.html'" onmouseenter="this.src='../img/icons8-customer-insight-50bk.png'" onmouseout="this.src='../img/icons8-customer-insight-50.png'"src="../img/icons8-customer-insight-50.png" alt=""></div>
+        </div>
+    </nav>
+
+    <div class="popup" style="color:white;">Prueba hacer click sobre los cursos</span></div>
+    <div class="popup2" style="color:white;"> En dispositivos moviles recomiendo hacer zoom</div>
+
+    <div class="container-estudios">
+        <div class="utu">
+            <img src="../img/fondutu.png" alt="">
+            <div>
+             <ul>
+                <li onclick="addtocourses('materias')">EMT - Administración
+                    <ul id="materias">
+                        <br>
+                        <li>ADMINISTRACION Y CONTABILIDAD INF</li>
+                        <li>ECONOMIA Y FINANZAS</li>
+                        <li>CONTABILIDAD SUPERIOR</li>
+                        <li>ANALISIS Y PRODUCCION DE TEXTOS</li>
+                        <li>ORGANIZACION INSTITUCIONAL</li>
+                        <li>GESTION EMPRESARIAL</li>
+                        <li>LEGISLACION EN LA EMPRESA</li>
+                        <li>DERECHO</li>
+                        <li>BASES DOCUMENTARIAS</li>
+                        <li>MATEMATICA FINANCIERA</li>
+                        <br>
+                        <li>Promedio: 9.5</li>
+                    </ul>
+                </li>
+
+                <li style="margin-left: 3rem;" onclick="addtocourses('materiasinfo')">EMT - Informática
+                    <ul id="materiasinfo">
+                        <br>
+                        <li>DISEÑO WEB I, II</li>
+                        <li>BASE DE DATOS I, II</li>
+                        <li>SISTEMAS OPERATIVOS I, II, III</li>
+                        <li>ANALISIS Y DISEÑO DE APLIC. WEB</li>
+                        <li>GESTION DE PROYECTO WEB</li>
+                        <li>PROGRAMACION WEB</li>
+                        <li>LOGICA PARA INFORMATICA</li>
+                        <li>METODOS DISCRETOS</li>
+                        <li>LAB. TECNOLOGIAS ELECTRICAS APLIC</li>
+                        <li>ELECTRONICA APLICADA INFORMATICA</li>
+                        <br>
+                        <li>Promedio: 9</li>
+                    </ul>
+                </li>
+             </ul>
+            </div>
+        </div>
+
+        <div class="jap">
+            <img src="../img/logo-jap-2022.svg" alt="">
+            <div>
+            <ul>
+                <li onclick="addtocourses('materiasjap')">Tester Junior</li>
+                <ul id="materiasjap">
+                <br>
+                <li>CALIDAD</li>
+                <li>TESTING</li>
+                <li>BUGS</li>
+                <li>SISTEMAS WEB</li>
+                <li>SISTEMAS MOBILE</li>
+                <li>PROCESOS DE DESARROLLO DE SOFTWARE</li>
+                <li>CASOS DE USO</li>
+                <li>ESRE</li>
+                <li>CASOS DE PRUEBA</li>
+                <li>TÉCNICAS DE PRUEBA</li>
+                <li>TEST DE REGRESiÓN</li>
+                <li>BASES DE DATOS</li>
+                <br>
+                <li>Promedio: 10</li>
+                </ul>
+            </ul>
+            </div>
+        </div>
+    </div>
+
+    <h1> Pablo Olivera </h1>
+
+    <script>
+        const listed = document.getElementById('materias');
+        const liste = document.getElementById('materiasinfo');
+        const list = document.getElementById('materiasjap');
+        listed.classList.add('mostrar');
+        liste.classList.add('mostrar');
+        list.classList.add('mostrar');
+
+        function addtocourses(x){
+        var list = x;
+        const listed = document.getElementById(`${list}`);
+
+        listed.classList.remove('mostrar');
+
+        console.log(list);
+        }
+    </script>
+
+    
+
+</body>
+</html>

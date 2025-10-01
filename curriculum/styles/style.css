@@ -1,0 +1,445 @@
+@font-face {
+    font-family: 'bar';
+    src: url("../fonts/LibreBarcode128Text-Regular.ttf");
+}
+
+@font-face {
+    font-family: 'name';
+    src: url("../fonts/DancingScript-VariableFont_wght.ttf");
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body{
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+nav{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    position: absolute;
+    right: 1%;
+    top: 37%;
+    border: solid;
+    border-radius: 1rem;
+    height: 10.5rem;
+    overflow: hidden;
+    width: 2.6rem;
+    
+}
+
+nav>div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    list-style: none;
+}
+
+nav>div>div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .5rem;
+    border-radius: .5rem;
+}
+
+
+
+#container3D{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.container_h>h1{
+    font-family:'name';
+    font-size: 7rem;
+}
+
+body>h1{
+    position: absolute;
+    bottom: .7rem;
+    left: 1rem;
+    font-family: 'bar';
+    font-size: 1.5rem;
+}
+
+.popup, .popup2{
+    position: absolute;
+    right: 100rem;
+    font-size: 1rem;
+    border: solid;
+    padding: .5rem;
+    margin-top: -.5rem;
+    border-radius: .5rem;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    animation-name: popup;
+    animation-duration: 8s;
+}
+
+.popup2{
+    animation-delay: 5.5s;
+}
+
+
+@keyframes popup {
+    0% {right: -50rem;} 
+    40% {right: 1rem;} 
+    70% {right: 1rem;} 
+    100% {right: -50rem;}
+    }
+
+img{
+   width: 1.5rem;
+}
+
+.study{
+    width: 1.7rem;
+}
+
+.knoledge{
+    width: 1.5rem;
+}
+
+.intro{
+    width: 1.5rem;
+}
+
+canvas{
+margin-left: -10rem;
+}
+
+.arrow_d{
+    rotate: -90deg;
+    position: absolute;
+    bottom: .7rem;
+    left: 48%;
+    width: 2.5rem;
+    animation-name: flecha;
+    animation-duration: 2s;
+    animation-iteration-count:infinite;
+}
+
+@keyframes flecha {
+  0% {bottom: .7rem;} 
+  50% {bottom: 2rem;} 
+  100% {bottom: .7rem;}
+  }
+
+.container_int{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.cont_pic_int{
+    height: 34vh;
+    border: solid;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.cont_pic_int>img{
+    width: 100%;
+    height: 100%;
+}
+
+.desc_int{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: solid;
+    width: 50vw;
+    height: 48vh;
+    border-radius: 1rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#TDcontainer{
+    animation-name: music;
+    animation-duration: 2s;
+    animation-iteration-count:infinite;
+}
+
+@keyframes music {
+    0% {bottom: -15rem;} 
+    50% {bottom: -13rem;} 
+    100% {bottom: -15rem;}
+    }
+
+.int{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+}
+
+h2{
+    padding: 2rem;
+    font-family: 'name';
+    font-weight: bold;
+    font-size: 3rem;
+}
+
+.nimg{
+    display: flex;
+    transition: all 0.5s ease-in-out;
+    width: 10rem;
+}
+
+.redondear{
+    border-radius: 10rem;
+}
+
+.games{
+    width: 50%;
+}
+
+.uy, .games, .music{
+    font-weight: bolder;
+    font-style: italic;
+}
+
+
+.ocultar{
+    display: none;
+}
+
+.popup_container{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: .1rem;
+    width: 25rem;
+    height: 2rem;
+    padding: .5rem;
+}
+
+.container-estudios{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border:solid;
+    width: 100%;
+    height: 100vh;
+}
+
+.container-estudios>div{
+    display: flex;
+    align-items: center;
+    border: solid;
+    width: 100%;
+    height: 50vh;
+    animation-name: calibracion;
+    animation-duration: 5s;
+}
+
+.container-estudios>div>img{
+    width: 30%;
+    margin-left: 5rem;
+    animation-name: move-logo;
+    animation-duration: 5s;
+}
+
+.utu{
+    background-color: rgb(28, 28, 209);
+}
+
+.jap{
+    background-color: rgb(130, 55, 140, 255);
+}
+
+.nav-estudios{
+    background-color: white;
+}
+
+
+
+@keyframes move-logo {
+    0% {
+        position: absolute;
+        width: 10%;
+        left: 35%;
+       } 
+    50% {
+        position: absolute;
+        width: 30%;
+        left: 30%;
+        } 
+    100% {
+        position: absolute;
+        left: .1rem;
+         }
+    }
+
+    .utu>div{
+       /* border: solid; */
+        width: fit-content;
+        height: fit-content;
+        margin-left: 12%;
+    }
+
+    .jap>div{
+        /* border: solid; */
+         width: fit-content;
+         height: fit-content;
+         margin-left: 23%;
+     }
+
+    div>ul{
+        display: flex;
+        flex-direction: row;
+        padding: 1rem;
+
+    }
+    
+
+    div>ul>li{
+        color: white;
+        font-weight: bolder;
+        font-family: Arial, Helvetica, sans-serif;
+        animation-name: move-cursos;
+        animation-duration: 9s;
+    }
+
+    @keyframes move-cursos {
+        0% {
+            font-size: 0rem;
+           }
+        
+        55%{
+            font-size: 0rem;
+           }
+        }
+
+    #materias{
+        font-size: .8rem;
+    }
+
+    #materiasinfo{
+        font-size: .8rem;
+    }
+
+    #materiasjap{
+        font-size: .8rem;
+        color: white;
+        font-weight: bolder;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .mostrar{
+        display: none;
+    }
+
+    .jap>div>ul{
+        display: flex;
+        flex-direction: column;
+    }
+
+    @media(max-width: 922px){
+        #materias, #materiasinfo, #materiasjap{
+            font-size: .5rem;
+        }
+
+        div>ul{
+            font-size: .8rem;
+        }
+    }
+
+
+    @media (max-width: 768px){
+        .popup, .popup2{
+            top: 1rem;
+        }
+    
+        .desc_int{
+            margin-left: 1.1rem;
+            margin-bottom: 4rem;
+        }
+    
+        .container_int{
+            flex-direction: column;
+        }
+    
+        h2{
+            margin-left: 0rem;
+        }
+    
+        .cont_pic_int{
+            margin-top: 4rem;
+        }
+    
+    }
+
+    @media (min-width: 768px){
+        .popup, .popup2{
+            bottom: 1rem;
+        }
+    
+        .desc_int{
+            margin-left: 5rem;
+        }
+    
+        h2{
+            margin-left: 5rem;
+        }
+    
+        .cont_pic_int{
+            margin-top: 6.5rem;
+        }
+    
+        .popup_container{
+        margin-top: 1rem;
+        height: 3rem;
+        bottom: 1rem;
+        }
+    
+    }
+    
+    
+    @media (max-width: 620px){
+    
+        .desc_int{
+            margin-left: 2.5rem;
+            height: 9rem;
+            padding: 2rem;
+        }
+    
+        .cont_pic_int{
+            margin-top: 1rem;
+        }
+    
+        .nimg{
+            width: 16rem;
+        }
+    
+    }
+
+    @media (max-width: 580px){
+        .container-estudios>div>img{
+            width: 30%;
+            margin-left: 2rem;
+        }
+
+        div>ul{
+            font-size: .4rem;
+        }
+
+        #materias, #materiasinfo, #materiasjap{
+            font-size: .3rem;
+        }
+    
+    }

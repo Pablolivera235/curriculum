@@ -1,0 +1,156 @@
+import * as THREE from "https://cdn.skypack.dev/three@0.129.0/build/three.module.js";
+import { OrbitControls } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/controls/OrbitControls.js";
+import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js";
+
+//Agregar ojetos en 3D
+export function tresD(n, y, j, w, h){
+
+  console.log(`Function tresD called with arguments: ${h}, ${y}`);
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(78, window.innerWidth / window.innerHeight, 0.1, 1000);
+  
+  let object;
+  
+  let controls;
+  
+  let objToRender = 'models';
+  
+  const loader = new GLTFLoader();
+
+  var obj = n;
+  var iden = y;
+  let dist = j;
+  var width = w;
+  var height = h;
+
+  if(width == window.innerWidth && height == window.innerHeight){
+  
+    window.addEventListener("resize", function () {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setPixelRatio(window.devicePixelRatio);
+      const widthj = window.innerWidth;
+      
+      if(obj == 'myname'){
+
+        if (widthj <= 874) {
+          dist = 3;
+
+        if (widthj <= 782) {
+          dist = 4;
+
+          if (widthj <= 540) {
+            dist = 5;
+
+            if (widthj <= 393) {
+              dist = 6;
+            } 
+
+          } 
+        } 
+      }
+
+        else {
+          dist = 2;
+        }
+
+        camera.position.z = objToRender === "models" ? dist : 500;
+
+      }
+
+      console.log(widthj);
+      console.log(dist);
+    });
+
+    window.onload = function (){
+
+      const widtho = window.innerWidth;
+      
+      if(obj == 'myname'){
+
+        if (widtho <= 874) {
+          dist = 3;
+
+        if (widtho <= 782) {
+          dist = 4;
+
+          if (widtho <= 540) {
+            dist = 5;
+
+            if (widtho <= 393) {
+              dist = 6;
+            } 
+
+          } 
+        } 
+      }
+
+        else {
+          dist = 2;
+        }
+
+        camera.position.z = objToRender === "models" ? dist : 500;
+    }
+
+  }
+}
+
+  
+  loader.load(
+    `../models/${obj}.gltf`,
+    function (gltf) {
+      object = gltf.scene;
+      scene.add(object);
+    },
+    function (xhr) {
+      console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+    },
+    function (error) {
+      console.error(error);
+    }
+  );
+
+  const renderer = new THREE.WebGLRenderer({ alpha: true });
+  renderer.setSize(w, h); 
+
+  document.getElementById(iden).appendChild(renderer.domElement);
+
+
+  camera.position.z = objToRender === "models" ? dist : 500;
+  
+  const topLight = new THREE.DirectionalLight(0xffffff, 1);
+  topLight.position.set(500, 500, 500) 
+  topLight.castShadow = true;
+  scene.add(topLight);
+  
+  const ambientLight = new THREE.AmbientLight(0x333333, objToRender === "models" ? 1 : 1);
+  scene.add(ambientLight);
+  
+  if (objToRender === "models") {
+    controls = new OrbitControls(camera, renderer.domElement);
+  }
+  
+  function animate() {
+    requestAnimationFrame(animate);
+  
+    if (object && objToRender === "models") {
+  
+    }
+    renderer.render(scene, camera);
+  }
+
+
+  animate();
+  console.log(dist);
+  console.log(obj);
+  console.log(iden);
+  console.log(width);
+  console.log(height);
+}
+
+//tresD( en nombre va el nombre del gtlf ej: 'nombre', y aquí el del id del div donde va el objeto ej: 'container3D', y aqui va el tamaño ej: 2), width ej:2000, height ej:4000;
+
+// Función para el index
+

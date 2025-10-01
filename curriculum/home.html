@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pablo Olivera | Inicio</title>
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+
+    <nav>
+        <div>
+        <div><img src="../img/icons8-home-48bk.png" alt=""></div>
+        <div><img class="intro" onclick="location.href='../pages/intro.html'" onmouseenter="this.src='../img/icons8-presentation-50bk.png'" onmouseout="this.src='../img/icons8-presentation-50.png'"src="../img/icons8-presentation-50.png" alt=""></div>
+        <div><img class="study"  onclick="location.href='../pages/experience.html'" onmouseenter="this.src='../img/icons8-education-48bk.png'" onmouseout="this.src='../img/icons8-education-48.png'"src="../img/icons8-education-48.png" alt=""></div>
+        <div><img class="knoledge"  onclick="location.href='../pages/knoledge.html', tresD('corchea', '3Dcontainer');" onmouseenter="this.src='../img/icons8-customer-insight-50bk.png'" onmouseout="this.src='../img/icons8-customer-insight-50.png'"src="../img/icons8-customer-insight-50.png" alt=""></div>
+        </div>
+    </nav>
+
+    <h1> Pablo Olivera </h1>
+    <img class="arrow_d" onclick="location.href='../pages/intro.html'" src="./img/flecha-izquierda.png" alt="">
+    <div class="popup_container">
+    <div class="popup"> Haz click y arrastra para mover el texto </span></div>
+    </div>
+
+        <div id="container3D"></div>
+  
+      <script src="https://threejs.org/build/three.js"></script>
+      <script src="./scripts/script.js" type="module"></script>
+      <script type="module">
+        import { tresD } from "../scripts/script.js";
+   
+       tresD('myname', 'container3D', 2, window.innerWidth, window.innerHeight);
+
+       </script>
+</body>
+</html>

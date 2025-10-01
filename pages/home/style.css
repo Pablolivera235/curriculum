@@ -1,0 +1,852 @@
+/* style.css */
+
+/* --- Fuentes --- */
+@font-face {
+    font-family: 'Roboto';
+    /* Asegúrate que la ruta al archivo de fuente es correcta desde la perspectiva del CSS */
+    src: local('Roboto Mono Variable Font'), /* Intenta usar local primero si está instalada */
+         url('../fonts/RobotoMono-VariableFont_wght.ttf') format('truetype'); /* Ruta relativa al CSS */
+    font-weight: normal; /* O variable si es fuente variable */
+    font-style: normal;
+    font-display: swap; /* Mejora la carga percibida */
+}
+
+/* --- Reset y Estilos Globales --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Incluye padding y border en el tamaño total */
+    font-family: 'Roboto', sans-serif; /* Fuente por defecto */
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden; /* Evitar scroll horizontal */
+}
+
+body {
+    display: flex;
+    justify-content: center; /* Centra #container si es el único hijo directo con tamaño */
+    background-color: #fff; /* Fondo por defecto (light) */
+    color: #000; /* Color texto por defecto (light) */
+    visibility: hidden; /* Ocultar hasta que JS lo muestre después de cargar */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave para tema */
+}
+
+img {
+    max-width: 100%; /* Hacer imágenes responsivas por defecto */
+    height: auto;
+    display: block; /* Evitar espacio extra debajo de las imágenes */
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    padding: 0;
+    font-family: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* --- Tema Dark/Light --- */
+body.dark {
+    background-color: #121212;
+    color: #fff;
+}
+
+/* --- Scrollbar --- */
+::-webkit-scrollbar {
+    width: 4px; /* Más delgado */
+    height: 4px;
+}
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1); /* Track semi-transparente */
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.3); /* Thumb más oscuro */
+    border-radius: 3px;
+}
+body.dark ::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+body.dark ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+
+/* --- Pantalla de Carga --- */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: white;
+    display: flex;
+    flex-direction: column; /* Para alinear texto debajo */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease-out;
+}
+#loading-screen img {
+    width: 6rem; /* Tamaño del icono */
+    margin-bottom: 1rem; /* Espacio antes del texto */
+}
+#loading-screen h4 {
+    opacity: 0.5;
+    color: gray;
+    font-size: 1rem;
+    font-weight: normal;
+}
+body.dark #loading-screen {
+    background: #121212;
+}
+body.dark #loading-screen h4 {
+    color: lightgray;
+}
+
+/* --- Layout Principal --- */
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    min-height: 100vh; /* Asegura que ocupe al menos toda la altura */
+    padding-top: 6rem; /* Espacio para header/isotipo */
+    padding-bottom: 4rem; /* Espacio para nav en móvil */
+}
+
+/* --- Header (Iconos Superiores) --- */
+#buscar, #perfil_container {
+    position: absolute;
+    top: 1.5%; /* Ajustar según sea necesario */
+    z-index: 10;
+}
+
+#buscar {
+    left: 3%;
+    width: 2.3rem;
+    cursor: pointer;
+}
+
+#perfil_container {
+    right: 3%;
+    display: flex;
+    align-items: center;
+    width: fit-content; /* Ajustar al contenido */
+}
+
+#foto_perfil {
+    width: 2.3rem;
+    height: 2.3rem; /* Hacerlo cuadrado */
+    border: 2px solid; /* Borde más delgado? */
+    border-radius: 50%; /* Circular perfecto */
+    object-fit: cover; /* Evita distorsión de imagen */
+    margin-left: 0.5rem; /* Espacio si hay algo antes */
+    border-color: black; /* Default light */
+}
+body.dark #foto_perfil {
+    border-color: white; /* Dark */
+}
+
+#verificado {
+    position: absolute;
+    width: 1.35rem;
+    bottom: -0.1rem;
+    right: -0.2rem;
+    /* No necesita z-index si está dentro del contenedor relativo */
+}
+
+/* --- Isotipo / Logo --- */
+#isotipo {
+    width: 10rem;
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5; /* Debajo de iconos de perfil/búsqueda */
+    display: block; /* Asegurar que sea bloque */
+}
+
+/* --- Barra de Búsqueda --- */
+#form_search {
+    width: fit-content; /* Ajustar al input */
+    position: absolute;
+    top: 1rem; /* Alinear con isotipo? */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 15; /* Encima de casi todo */
+    display: none; /* Oculto por defecto, JS lo muestra */
+}
+#search {
+    padding: 6px 10px; /* Más padding */
+    border: 2px solid #ccc; /* Borde más sutil */
+    border-radius: 15px;
+    min-width: 200px; /* Ancho mínimo */
+    font-size: 0.9rem;
+}
+body.dark #search {
+    background-color: #333;
+    border-color: #555;
+    color: #eee;
+}
+
+#ultemp{
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    background: white;
+    padding: .8rem;
+    border: solid;
+    bottom: 3rem;
+    gap: .3rem;
+    border-radius: .5rem;
+}
+body.dark #ultemp{
+    background: rgba(45, 45, 45, 0.95); 
+}
+
+#ultemp>li{
+    font-family: 'Roboto';
+    font-weight: bolder;
+}
+
+/* --- Dropdown de Búsqueda --- */
+#dropdown {
+    position: absolute;
+    top: 100%; /* Debajo del input */
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 4px); /* Ancho del input menos bordes */
+    max-width: 300px; /* Ancho máximo */
+    max-height: 200px; /* Altura máxima con scroll */
+    overflow-y: auto;
+    background: white;
+    border: 1px solid #ccc;
+    border-top: none; /* Unir con input */
+    border-radius: 0 0 10px 10px; /* Redondear abajo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 14; /* Debajo del input, encima de otros */
+    display: none; /* Oculto por defecto */
+    padding: 0;
+    margin: 0;
+}
+#dropdown li {
+    padding: 8px 12px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.85rem;
+    white-space: nowrap; /* Evitar que texto largo rompa */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-bottom: 1px solid #eee; /* Separador sutil */
+}
+#dropdown li:last-child {
+    border-bottom: none;
+}
+#dropdown li:hover {
+    background: #f0f0f0;
+}
+body.dark #dropdown {
+    background: #2b2b2b;
+    border-color: #444;
+}
+body.dark #dropdown li {
+    color: #ddd;
+    border-bottom-color: #444;
+}
+body.dark #dropdown li:hover {
+    background: #404040;
+}
+
+/* Highlight para resultados (opcional) */
+.highlight {
+    background-color: yellow;
+    color: black; /* Asegurar legibilidad */
+}
+body.dark .highlight {
+    background-color: darkgoldenrod;
+    color: white;
+}
+
+
+/* --- Navegación Lateral/Inferior --- */
+nav {
+    position: fixed;
+    background: white;
+    border: 1px solid #ccc; /* Borde más sutil */
+    border-radius: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 20; /* Encima de casi todo */
+    transition: all 0.3s ease; /* Para cambio de posición */
+}
+nav > div { /* Contenedor interno flex */
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+nav > div > div { /* Cada item */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem; /* Espaciado interno */
+}
+nav img {
+    width: 1.5rem; /* Tamaño iconos nav */
+    height: 1.5rem;
+    opacity: 0.7; /* Iconos un poco atenuados */
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+nav img:hover {
+    opacity: 1; /* Opacidad completa al pasar el mouse */
+    transform: scale(1.1); /* Ligeramente más grande */
+}
+nav img.study { /* Ajustes específicos si son necesarios */
+    width: 1.7rem;
+    height: 1.7rem;
+}
+nav img.knoledge {
+    width: 1.5rem;
+}
+
+/* Estilos Navegación Desktop (Lateral Izquierda) */
+@media (min-width: 769px) {
+    nav {
+        left: 1%;
+        top: 50%;
+        transform: translateY(-50%); /* Centrado vertical perfecto */
+        flex-direction: column; /* Cambia a columna */
+        width: 3.5rem;
+        height: 14rem;
+        padding: 0.5rem 0; /* Padding vertical */
+    }
+    nav > div {
+        flex-direction: column; /* Items en columna */
+    }
+    nav > div > div {
+        padding: 0.8rem 0; /* Más padding vertical entre items */
+    }
+}
+
+/* Estilos Navegación Móvil (Inferior) */
+@media (max-width: 768px) {
+    body {
+        padding-bottom: 5rem; /* Más espacio abajo para la nav */
+    }
+    nav {
+        bottom: 1%;
+        left: 50%;
+        transform: translateX(-50%); /* Centrado horizontal */
+        width: 33%; /* Ancho mayor en móvil */
+        max-width: 350px; /* Pero con un máximo */
+        height: 3rem; /* Altura fija */
+        flex-direction: row; /* Dirección fila (default) */
+    }
+    nav > div {
+        flex-direction: row; /* Asegurar fila */
+    }
+    nav > div > div {
+        padding: 0 0.5rem; /* Padding horizontal entre items */
+    }
+}
+@media(max-width: 550px){
+        nav{
+        left: 1%;
+        top: auto;
+        bottom: 1%;
+        height: 2.6rem;
+        width: 10.5rem;
+        z-index: 1;
+        left: 50%;
+        transform: translateX(-50%);
+        background: white;
+    }
+
+    nav>div{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        list-style: none;
+    }
+
+    nav>div>div{
+        display: flex;  
+        align-items: center;
+        justify-content: center;
+        padding: .5rem;
+        border-radius: .5rem;
+    }
+
+    img{
+        width: 1.5rem;
+    }
+
+}
+/* Tema Dark para Nav */
+body.dark nav {
+    background: white;
+    border-color: #444;
+}
+/* Podrías necesitar invertir colores de iconos específicos para dark mode si son PNG/JPG */
+/* body.dark nav img.home-icon { filter: invert(1); } */
+
+
+/* --- Contenedor de Películas/Series (Grid) --- */
+#pelis {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centrar items */
+    gap: 1rem; /* Espacio entre items */
+    width: 100%;
+    max-width: 1200px; /* Ancho máximo del grid */
+    padding: 1rem; /* Padding alrededor del grid */
+    margin: 0 auto; /* Centrar el contenedor del grid */
+    /* overflow-y: scroll; */ /* Quitamos esto, el scroll debe ser de #container o body */
+    /* height: 100vh; */ /* Quitamos alto fijo */
+}
+
+/* --- Contenedor Bienvenida --- */
+#contenedor_bienvenida {
+    display: flex; /* Cambiado por JS a flex inicialmente */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    /* height: 50%; */ /* Altura flexible mejor */
+    margin-bottom: 2rem; /* Espacio debajo */
+    text-align: center;
+    padding: 1rem;
+}
+#contenedor_bienvenida img#default {
+    width: 100%; /* Ajustar al contenedor */
+    max-width: 20rem; /* Ancho máximo para el welcome */
+    margin-bottom: 1rem; /* Espacio antes del nombre */
+}
+#user_name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 1rem; /* Separación */
+    /* Color heredado de body (dark/light) */
+}
+
+/* --- Portada Dinámica (Oculta por defecto) --- */
+#back_pic, #iso_port {
+    display: none; /* JS lo muestra */
+    position: absolute; /* O relativo si es necesario */
+    /* Estilos específicos si se muestran */
+}
+/* #back_pic { ... } */
+/* #iso_port { ... } */
+
+
+/* --- Contenedor de Post (Película/Serie Individual en Grid) --- */
+.post_container, #seriesForm button.post_container_serie {
+    position: relative; /* Para elementos internos absolutos si los hubiera */
+    display: block; /* Era inline-block, block es más simple para flex */
+    width: 8rem; /* Ancho fijo */
+    height: 12rem; /* Alto fijo */
+    border: 3px solid black; /* Borde default light */
+    border-radius: 0.8rem; /* Menos redondeo? */
+    overflow: hidden; /* Esconder contenido que sobresalga */
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background-color: #eee; /* Placeholder si la imagen tarda */
+}
+.post_container:hover, #seriesForm button.post_container_serie:hover {
+    transform: scale(1.05); /* Efecto hover */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+body.dark .post_container, body.dark #seriesForm button.post_container_serie {
+    border-color: white;
+    background-color: #333;
+}
+body.dark .post_container:hover, body.dark #seriesForm button.post_container_serie:hover {
+     box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+.post_photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cubrir el contenedor sin distorsión */
+    display: block;
+    /* Quitamos transform y margin-top raros */
+}
+
+/* --- Contenedor de Contenido Detallado (AJAX) --- */
+/* Usaremos #contenido como el wrapper que muestra/oculta JS */
+#contenido {
+    display: none; /* Oculto por defecto */
+    position: fixed; /* O absolute, según necesidad */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
+    z-index: 50; /* Encima de todo */
+    display: flex; /* Para centrar .content */
+    justify-content: center;
+    align-items: center;
+    padding: 1rem; /* Espacio para que no pegue a bordes */
+}
+
+.content { /* Este es el div que viene por AJAX */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra contenido interno */
+    position: absolute; /* Para elementos absolutos dentro */
+    width: 56vw;
+    max-width: 600px; /* Ancho máximo del modal */
+    height: 87vh; /* Alto máximo */
+    max-height: 89vh;
+    background: white; /* Fondo light */
+    border: 4px solid black; /* Borde light */
+    border-radius: 1.5rem;
+    overflow-y: auto; /* Scroll si contenido es largo */
+    z-index: 51; /* Encima del overlay */
+    padding: 1rem; /* Padding interno */
+    padding-top: 4rem; /* Espacio para imagen de fondo y botón salir */
+    color: black;
+    bottom: 0; /* Color texto light */
+}
+body.dark .content {
+    background: #1f1f1f; /* Fondo dark un poco más claro */
+    border-color: white;
+    color: white;
+}
+
+/* Imagen de fondo en detalle */
+#ser_post_pop {
+    position: absolute;
+    top: -7px;
+    left: 0;
+    width: 100%;
+    height: 56rem;
+    /* object-fit: cover; */
+    z-index: -1;
+    border-radius: 1.5rem 1.5rem 0 0;
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 100%);
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 100%);
+}
+
+/* Botón Salir (en detalle) */
+#salir_serie {
+    position: absolute;
+    width: 2rem; /* Tamaño ajustado */
+    height: 2rem;
+    left: 1rem;
+    top: 1rem;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo para visibilidad */
+    border-radius: 50%;
+    padding: 0.3rem; /* Espacio interno */
+    filter: invert(1); /* Asumiendo icono oscuro sobre fondo claro */
+    z-index: 2; /* Encima de la imagen de fondo */
+}
+body.dark #salir_serie {
+     background-color: rgba(255, 255, 255, 0.5);
+     filter: invert(0); /* Icono claro sobre fondo oscuro */
+}
+
+
+/* --- Info Box (Dentro de .content) --- */
+.infoBox {
+    display: none; /* Oculto por defecto */
+    position: absolute; /* Relativo a .content */
+    top: 50%; /* Centrado (ajustar si es necesario) */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Centrar contenido */
+    width: 80%; /* Ancho relativo al contenedor .content */
+    max-width: 400px;
+    background: rgba(45, 45, 45, 0.95); /* Fondo oscuro semi-transparente */
+    color: white;
+    padding: 1.5rem; /* Más padding */
+    border-radius: .8rem;
+    z-index: 3; /* Encima del contenido normal */
+    text-align: center; /* Centrar texto */
+}
+.infoBox.mostrar {
+    display: flex; /* Mostrar cuando tenga la clase */
+}
+.infoBox h1 {
+    color: white;
+    font-weight: bolder;
+    font-size: 1.3rem; /* Tamaño título */
+    margin-bottom: 1rem; /* Espacio debajo del título */
+}
+.infoBox div { /* Contenedor de la descripción */
+    margin-top: 0; /* Sin margen superior extra */
+    width: 100%; /* Ancho completo */
+}
+.infoBox p {
+    font-size: 0.9rem; /* Tamaño descripción */
+    line-height: 1.5; /* Mejor legibilidad */
+}
+
+
+/* Características Técnicas (Dentro de .content) */
+#características_tecnicas {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Alinear verticalmente */
+    width: 90%; /* Ancho relativo */
+    margin-top: 35rem; /* Espacio después de imagen */
+    margin-bottom: 1rem; /* Espacio antes del botón Ver */
+    gap: 0.8rem; /* Espacio entre iconos y botón temp */
+    position: relative; /* Para que esté sobre el degradado */
+    z-index: 1;
+}
+#características_tecnicas img {
+    width: 1.8rem; /* Tamaño iconos técnicos */
+    height: 1.8rem;
+    opacity: 0.8;
+}
+#características_tecnicas img.about_img {
+    cursor: pointer; /* Indicar que es clickeable */
+    margin-right: auto; /* Empujar a la izquierda */
+}
+#temp { /* Botón Temporadas */
+    border-radius: .5rem;
+    border: 1px solid; /* Borde sutil */
+    background: white;
+    color: black; /* Texto negro */
+    padding: 0.3rem 0.8rem; /* Padding */
+    font-weight: bold;
+    font-size: 0.8rem;
+    margin-left: auto; /* Empujar a la derecha */
+    border-color: #ccc; /* Borde light */
+}
+body.dark #características_tecnicas img {
+   /* filter: invert(1); Asumiendo iconos oscuros, invertir para dark mode */
+   opacity: 0.7;
+}
+body.dark #temp {
+    background: #333;
+    color: white;
+    border-color: #555;
+}
+
+/* Botón Ver Ahora (Dentro de .content) */
+#ser_ver {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    text-align: center;
+    border: 2px solid;
+    font-weight: bolder;
+    font-size: 1.1rem;
+    border-radius: .8rem;
+    width: 90%;
+    max-width: 300px;
+    height: 2.8rem;
+    /* margin: 1rem 0; */
+    background-color: #eee;
+    color: black;
+    border-color: black;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+#ser_ver:hover {
+    background-color: #ddd;
+}
+body.dark #ser_ver {
+    background-color: #444;
+    color: white;
+    border-color: white;
+}
+body.dark #ser_ver:hover {
+    background-color: #555;
+}
+
+/* Lista de Episodios (Dentro de .content) */
+.epis {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    width: 95%; /* Casi todo el ancho */
+    gap: 0.8rem; /* Espacio entre episodios */
+    padding-bottom: 1rem; /* Espacio al final */
+}
+.epis li {
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Alinear imagen y texto */
+    border-radius: .5rem;
+    padding: .5rem; /* Padding interno */
+    background-color: none; /* Fondo ligero para cada item */
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    border: none; /* Borde muy sutil */
+}
+.epis li:hover {
+    background-color: #efefef;
+}
+body.dark .epis li {
+    background-color: none;
+    border-color: none;
+}
+body.dark .epis li:hover {
+    background-color: #383838;
+}
+
+.epis li img { /* Miniatura episodio */
+    width: 6rem; /* Ancho fijo miniatura */
+    height: 4rem; /* Alto fijo miniatura */
+    object-fit: cover;
+    border-radius: .3rem; /* Redondeo ligero */
+    margin-right: 0.8rem; /* Espacio a la derecha */
+    border: none; /* Quitar borde individual */
+}
+.epis li div { /* Contenedor de texto del episodio */
+    flex-grow: 1; /* Ocupar espacio restante */
+    width: auto; /* Ancho automático */
+    height: auto; /* Alto automático */
+    margin-left: 0; /* Sin margen extra */
+}
+.epis li div h1 { /* Título episodio */
+    font-size: 0.9rem; /* Tamaño ajustado */
+    font-weight: bold;
+    margin-bottom: 0.2rem; /* Espacio pequeño antes de desc */
+    line-height: 1.2;
+}
+.epis li div p { /* Descripción episodio */
+    font-size: .75rem; /* Más pequeño */
+    color: #555; /* Color más tenue */
+    line-height: 1.3;
+    /* Limitar a 2 líneas con ellipsis si es necesario */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+body.dark .epis li div p {
+    color: #aaa;
+}
+
+
+/* --- Clases Utilitarias --- */
+.ocultar, .esconder { /* Usar una sola clase */
+    display: none !important; /* !important si es necesario sobreescribir */
+}
+.mostrar, .bloq { /* Usar una sola clase */
+    display: block !important; /* O flex, grid, etc. según corresponda */
+}
+.flex {
+    display: flex !important;
+}
+
+#ultemp{
+
+}
+
+    #fav{
+      top: 1rem;
+      right: .9rem;
+      width: 2.6rem;
+      position: absolute;
+    }
+    #fav>img{
+        width: fit-content;
+    }
+   
+/* --- Media Queries Específicos (Ajustar según diseño) --- */
+
+/* Tablets y pantallas pequeñas */
+@media (max-width: 997px) {
+    /* Ajustes generales si son necesarios */
+}
+
+/* Móviles grandes */
+@media (max-width: 768px) {
+    #fav{
+        right: .2rem;
+    }
+    #fav>img{
+        width: fit-content;
+    }
+
+     #isotipo {
+        width: 8rem; /* Logo más pequeño */
+        top: 1.5rem;
+    }
+    #container {
+        padding-top: 5rem; /* Menos padding superior */
+    }
+     #pelis {
+        gap: 0.8rem; /* Menos espacio entre posts */
+    }
+    .post_container, #seriesForm button.post_container_serie {
+        height: 11rem; /* Ajustar altura si es necesario */
+    }
+     #user_name {
+        font-size: 1.3rem;
+    }
+    .content { /* Modal de detalle */
+        width: 65vw;
+        height: 93vh;
+        padding-top: 3rem;
+    }
+     #ser_post_pop { /* Imagen cabecera detalle */
+       height: 42rem;
+    }
+     #características_tecnicas {
+        flex-wrap: wrap; /* Permitir que elementos bajen */
+        gap: 0.5rem;
+        margin-top: 27rem;
+     }
+     #características_tecnicas img.about_img { margin-right: 0.5rem; }
+     #temp { margin-left: 0.5rem; }
+
+     .epis li img { width: 7rem; height: 4rem; }
+     .epis li div h1 { font-size: 0.85rem; }
+     .epis li div p { font-size: 0.7rem; }
+}
+
+/* Móviles pequeños */
+@media (max-width: 550px) {
+    #fav{
+        right: 0.2rem;
+        width: 2.5rem;
+    }
+    #fav>img{
+        width: fit-content;
+    }
+    .post_container, #seriesForm button.post_container_serie {
+        height: 11rem;
+    }
+    #pelis {
+        gap: 0.5rem; /* Menos espacio */
+        padding: 0.5rem; /* Menos padding exterior */
+    }
+    #contenedor_bienvenida img#default {
+        max-width: 15rem;
+    }
+    #user_name {
+        font-size: 1.2rem;
+    }
+    #características_tecnicas {
+        margin-top: 30rem;
+    }
+    .content{
+        width: 95vw;
+        height: 78vh;
+        bottom: 0;
+    }
+         #ser_post_pop { /* Imagen cabecera detalle */
+       height: 38rem;
+    }
+    /* Ajustes adicionales para modal si es necesario */
+
+}
