@@ -1,11 +1,314 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>UnRecord - Próximamente</title>
+    <style>
+        /* Estilos Generales */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f5f1; /* Fondo similar al color crema/salmón claro */
+            color: #333;
+        }
+
+        /* Contenedor Principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Encabezado (Header) */
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: #ff0000; /* Rojo vibrante */
+        }
+        
+        /* Simulación del logo del triple 'M' */
+        .logo-icon {
+            margin-right: 8px;
+            font-size: 16px;
+            color: #ff0000;
+        }
+
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .login-button {
+            position: absolute;
+            right: 2rem;
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        /* Sección Principal (Hero) */
+        .hero {
+            display: flex;
+            align-items: center;
+            padding-top: 50px;
+            position: relative;
+            min-height: 500px;
+        }
+
+        .left-content {
+            flex: 1;
+            padding-right: 40px;
+        }
+
+        .headline {
+            font-size: 64px;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .red-dot {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: #ff0000;
+            border-radius: 50%;
+            margin-left: 10px;
+            position: relative;
+            top: -10px; /* Ajuste para alinear visualmente */
+        }
+
+        .subtext {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            background-color: #ff0000; /* Naranja/Salmón del botón */
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 700;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+        }
+
+        .right-content {
+            flex: 1;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Círculo de fondo */
+        .background-circle {
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            background-color: #ff00004a; /* Naranja transparente */
+            border-radius: 50%;
+            right: 0;
+            bottom: 0;
+            transform: translate(20%, 20%);
+            z-index: 1;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%); /* Simulación de corte inferior */
+            /* En el diseño original es una curva más orgánica, pero esta es una aproximación */
+            
+        }
+
+        .movie-poster {
+            width: 250px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 2;
+            margin-top: -50px; /* Ajuste para superponer el poster */
+        }
+
+        /* Logos de Plataformas */
+        .platform-logo {
+            position: absolute;
+            width: 74px;
+            height: 74px;
+            border-radius: 50%;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .platform-logo img {
+            width: 80%;
+            height: 80%;
+            object-fit: contain;
+        }
+        
+        /* Posicionamiento de logos */
+        .logo-netflix { top: 20px; left: 112px; }
+        .logo-disney { top: -14px; right: 116px; }
+        .logo-hbo { bottom: 16px; right: 148px; }
+        .logo-prime { top: 180px; left: 118px; }
+        .logo-apple { bottom: 5px; left: 80px; }
+
+        /* Puntos decorativos */
+        .dot-deco-1 {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background-color: #ff0000;
+            border-radius: 50%;
+            top: 10px;
+            right: 150px;
+        }
+        .dot-deco-2 {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background-color: #ff0000;
+            border-radius: 50%;
+            top: 200px;
+            left: 20px;
+        }
+
+
+        /* Media Queries para responsividad */
+        @media (max-width: 850px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                min-height: initial;
+            }
+
+            .left-content {
+                padding-right: 0;
+                order: 2;
+                margin-top: 40px;
+            }
+
+            .right-content {
+                order: 1;
+                margin-bottom: 50px;
+            }
+            
+            .headline {
+                font-size: 48px;
+            }
+
+            .background-circle {
+                width: 350px;
+                height: 350px;
+                transform: translate(0, 0);
+                right: initial;
+                bottom: initial;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            .movie-poster {
+                width: 200px;
+            }
+
+            nav {
+                display: none; /* Ocultar menú en móviles, solo dejar el botón */
+            }
+        }
+    </style>
 </head>
 <body>
-    Disponible muy pronto
+
+    <div class="container">
+        <header>
+            <div class="logo">
+                <span class="logo-icon"></span>UnRecor<span>o</span>d
+            </div>
+            <a href="#" class="login-button">Iniciar Sesión</a>
+        </header>
+
+        <div class="dot-deco-1"></div>
+
+        <section class="hero">
+            <div class="left-content">
+                <h1 class="headline">
+                    Disponible<br>muy Pronto <span class="red-dot"></span>
+                </h1>
+                <p class="subtext">
+                    Tras haber recibido un hackeo, y haber accidentalmente puesto el servidor principal fuera de servicio, se ha tercializado el servidor y volvera a estar acivo nuevamente muy pronto
+                </p>
+                <a href="#" class="cta-button">
+                    Notificarme
+                </a>
+            </div>
+
+            <div class="right-content">
+                <div class="background-circle"></div>
+
+                <img src="https://m.media-amazon.com/images/S/pv-target-images/f5af184404f22183d9511e2baff600f18d32277ed826ff23a815a9129d3c8f2b.jpg" alt="Póster de Película Genérica" class="movie-poster">
+
+                <div class="platform-logo logo-netflix">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1200px-Netflix_2015_logo.svg.png" alt="Netflix Logo">
+                </div>
+                
+                <div class="platform-logo logo-disney">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg" alt="Disney+ Logo">
+                </div>
+
+                <div class="platform-logo logo-hbo">
+                    <img src="https://cdn.freebiesupply.com/logos/large/2x/hbo-logo-png-transparent.png" alt="HBO Max Logo">
+                </div>
+                
+                <div class="platform-logo logo-prime">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Amazon_Prime_logo_%282022%29.svg/1200px-Amazon_Prime_logo_%282022%29.svg.png" alt="Amazon Prime Video Logo">
+                </div>
+
+            </div>
+        </section>
+    </div>
+
 </body>
 </html>
