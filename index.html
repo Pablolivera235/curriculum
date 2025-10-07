@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UnRecord - Próximamente</title>
     <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
         /* Estilos Generales */
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -16,16 +20,23 @@
 
         /* Contenedor Principal */
         .container {
+            height: 100vh;
+            width: 100vw;
+            justify-content: center;
+            align-items: center;
+            display: flex;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
         }
 
         /* Encabezado (Header) */
         header {
+            position: absolute;
+            top: 1rem;
             display: flex;
-            justify-content: center;
+            width: 100%;
             align-items: center;
+            justify-content: center;
             padding: 15px 0;
         }
 
