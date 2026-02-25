@@ -1,0 +1,17 @@
+{
+  "name": "UnRecord",
+  "short_name": "UnRecord",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#121212",
+  "theme_color": "#000000",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "./assets/iconor.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
