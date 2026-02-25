@@ -1,0 +1,421 @@
+@font-face {
+        font-family: 'Roboto';
+        src: local('../fonts/RobotoMono-VariableFont_wght.ttf');
+        font-weight: bold;
+        font-style: normal;
+    }
+    *{
+        margin: 0;
+        padding: 0;
+        font-family: Roboto, sans-serif;
+    }
+    body{
+        overflow-x: hidden;
+    }
+    #foto_perfil{
+        width: 2.3rem;
+        height: 2.2rem;
+        border: solid;
+        border-radius: 100rem;
+        margin-left: .5rem;
+        margin-top: .15rem;
+    }
+    #perfil_container{
+        display: flex;
+        position: absolute;
+        width: fit-content;
+        top: 1.5%;
+        right: 3%;
+        border: none;
+    }
+    #buscar{
+        display: flex;
+        position: absolute;
+        width: 2.3rem;
+        top: 1.9%;
+        left: 3%;
+        border: none;
+    }
+
+    #verificado{
+        position: absolute;
+        width: 1.35rem;
+        bottom: -.1rem;
+        right: -.2rem;
+    }
+
+    .mostrar {
+        display: block;
+    }
+    .flex{
+        display: flex;
+    }
+
+    ::-webkit-scrollbar{
+        width: .1rem;
+        height: .1rem;
+    }
+    ::-webkit-scrollbar-track{
+        border-radius: .3rem;
+    }            
+    .ocultar{
+        display: none;
+    }
+
+    #back_pic{
+        width: 100%;
+        border-radius: 2rem;
+    }
+
+    body{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    #iso_port{
+        position: absolute;
+        width: 44rem;
+        top: 30%;
+        left: 7rem;
+    }
+    #isotipo{
+        width: 10rem;
+        position: absolute;
+        top: 1rem;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    #container{
+        display: flex;
+        overflow-y: scroll;
+        flex-direction: column;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    #contenedor_bienvenida{
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        height: 50%;
+        margin-bottom: 4rem;
+    }
+
+    nav{
+        display: flex;
+        flex-direction: column;
+        align-items:center;
+        justify-content: center;
+        position: fixed;
+        left: 1%;
+        top: 37%;
+        border: solid;
+        border-radius: 1rem;
+        height: 10.5rem;
+        overflow: hidden;
+        width: 2.6rem;
+    
+    }
+
+    nav>div{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        list-style: none;
+    }
+
+    nav>div>div{
+        display: flex;  
+        align-items: center;
+        justify-content: center;
+        padding: .5rem;
+        border-radius: .5rem;
+    }
+
+    img{
+        width: 1.5rem;
+    }
+
+    .study{
+        width: 1.7rem;
+        height: 2rem;
+        margin-top: -.3rem;
+    }
+
+    .knoledge{
+        width: 1.5rem;
+        margin-top: -.25rem;
+    }
+
+    .intro{
+        width: 1.5rem;
+    }
+
+    #pelis{
+    	display: flex;
+    	flex-wrap: wrap;
+    	/* border: solid; */
+    	width: 80vw;
+    	/* margin-left: .4rem; */
+    	align-items: center;
+    	justify-content: center;
+    	height: 100vh;
+    	padding: 9rem;
+    	overflow-y: scroll;
+    }
+    #post_container{
+        position: relative;
+        display: inline-block;
+        /* margin-top: 8rem; */
+        /* margin-bottom: -5rem; */
+        align-items: center;
+        justify-content: center;
+        border: 3px solid;
+        border-radius: 1rem;
+        width: 8rem;
+        height: 10rem;
+        overflow: hidden;
+        margin-left: .2rem;
+        margin-top: .3rem;
+    }
+    #post_container_serie{
+        position: relative;
+        display: inline-block;
+        /* margin-top: 8rem; */
+        /* margin-bottom: -5rem; */
+        align-items: center;
+        justify-content: center;
+        border: 3px solid;
+        border-radius: 1rem;
+        width: 8rem;
+        height: 10rem;
+        overflow: hidden;
+        margin-left: .2rem;
+        margin-top: .3rem;
+    }
+    #user_name{
+        margin-bottom: -10rem;
+        padding: 5rem;
+        font-family: Roboto, sans-serif;
+    }
+    .post_photo{
+        display: flex;
+        width: -webkit-fill-available;
+        left: 50%;
+        transform: translateY(-50%);
+        margin-top: 60%;
+    }
+
+    #default{
+        width: 50rem;
+    }
+
+    .content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow-y: scroll;
+        position: absolute;
+        border: solid;
+        border-bottom: none;
+        top: 6rem;
+        bottom: 0rem;
+        left: 50%;
+        transform: translateX(-50%);
+        height: fit-content;
+        width: 90vw;
+        border-top-left-radius: 1.5rem;
+        border-top-right-radius: 1.5rem;
+        background: white;
+        overflow-y: scroll;
+        z-index: 2;
+    }
+
+    li{
+        display: flex;
+        border:none;
+        flex-direction: row;
+        border-radius: .5rem;
+        padding: .2rem;
+        width: 100%;
+        font-weight: bolder;
+        font-family: Roboto, sans selif;
+
+    }
+
+    #ser_post_pop{
+        position: absolute;
+        top: 0rem;
+        z-index: -2;
+        width:100%;
+        height: 39rem;
+        -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 100%);
+        mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 100%);
+    }
+
+    #ser_ver{
+        border: solid;
+        font-weight: bolder;
+        font-size: 1.1rem;
+        border-radius: .8rem;
+        width: 90%;
+        height: 2.8rem;
+    }
+
+    #características_tecnicas>img{
+        width: 2rem;
+    }
+
+    #características_tecnicas{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 81%;
+        margin-top: 124%;
+    }
+
+    #about_img{
+        margin-right: 32%;
+    }
+
+    #salir_serie{
+        position: absolute;
+        width: 2.5rem;
+        left: .5rem;
+        top: .5rem;
+    }
+
+    #temp{
+        border-radius: .5rem;
+        border: solid;
+        background: white;
+        margin-top: .2rem;
+        height: 1.5rem;
+        padding-right: .5rem;
+        padding-left: .5rem;
+        margin-left: 3rem;
+        font-weight: bolder;
+    }
+    .epis{
+        display: flex;
+        flex-direction: column;
+        margin-top: 1rem;
+        width: 90%;
+        height: fit-content;
+    }
+    .epis>li>img{
+        width: 7rem;
+        border: solid;
+        border-radius: .5rem;
+    }
+    .epis>li>div>h1{
+        font-size: 1rem;
+    }
+    .epis>li>div>p{
+        margin-top: .15rem;
+        font-size: .6rem;
+    }
+    .epis>li>div{
+        margin-left: .5rem;
+        width: 14rem;
+        height: 4rem;
+    }
+
+
+    @media(min-width: 907px){
+    .content{
+    width: 31rem;
+    }
+    }
+
+
+    @media(max-width: 997px){
+    #default{
+        width: 35rem;
+    }
+
+    #iso_port{
+        width: 30rem;
+        top: 30%;
+        left: 5rem;
+    }
+    }
+
+    @media(max-width: 700px){
+    #default{
+        width: 20rem;
+    }
+    #iso_port{
+        width: 20rem;
+        top: 30%;
+        left: 5rem;
+    }
+    }
+
+    @media(max-width: 550px){
+    #iso_port{
+        width: 20rem;
+        top: 35%;
+        left: 1rem;
+    }
+    #back_pic{
+        width: 100%;
+        height: 100%;
+        border-radius: 0rem;
+        -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 50%, rgba(0, 0, 0, 1) 100%);
+        mask-image: radial-gradient(circle, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 100%);
+    }
+        nav{
+        left: 1%;
+        top: auto;
+        bottom: 1%;
+        height: 2.6rem;
+        width: 10.5rem;
+        z-index: 1;
+        left: 50%;
+        transform: translateX(-50%);
+        background: white;
+    }
+
+    nav>div{
+        flex-direction: row;
+    }
+
+    .study{
+        margin-top: .0rem;
+    }
+
+    .knoledge{
+        margin-top: .1rem;
+    }
+    .intro{
+        width: 1.5rem;
+    }
+    #portada{
+        border-radius: 0;
+        width: 130vw;
+        height: 120%;
+        margin-top: 5rem;
+    }
+    #pelis{
+        width: 100vw;
+        height: 100vh
+    }
+    #default{
+        width: 20rem;
+    }
+    #user_name{
+        padding: 1rem;
+        font-size: 1.5rem;
+        margin-bottom: 0rem;
+    }
+    #contenedor_bienvenida{
+        margin-top: -3rem;
+        margin-bottom: 1rem;
+        height: 25%;
+    }
+    }
