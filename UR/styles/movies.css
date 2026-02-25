@@ -1,0 +1,353 @@
+    *{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    }
+
+    #form_search{
+        width: fit-content;
+        position: absolute;
+        top: 2.9%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .esconder{
+        display: none;
+    }
+
+    .bloq{
+        display: block;
+    }
+    #search{
+        padding: 3px;
+        border: solid 4px;
+        border-radius: 15px;
+    }
+
+    #foto_perfil{
+        width: 2.3rem;
+        height: 2.2rem;
+        border: solid;
+        border-radius: 100rem;
+        margin-left: .5rem;
+        margin-top: .15rem;
+    }
+    #perfil_container{
+        display: flex;
+        position: absolute;
+        width: fit-content;
+        top: 1.5%;
+        right: 3%;
+        border: none;
+    }
+
+    #verificado{
+        position: absolute;
+        width: 1.35rem;
+        bottom: -.1rem;
+        right: -.2rem;
+    }
+    .mostrar {
+    display: block;
+    }
+    .flex{
+        display: flex;
+    }
+    #eps{
+        display: none;
+    }
+
+    .eps{
+        position: absolute;
+        overflow: scroll;
+        top: 1rem;
+        left: 55%;
+        height: 8rem;
+        transform: translateX(-50%);
+        overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar{
+        width: .1rem;
+        height: .1rem;
+    }
+    ::-webkit-scrollbar-track{
+        border-radius: .3rem;
+
+    .ocultar{
+        display: none;
+    }
+
+    #back_pic{
+        width: 100%;
+        border-radius: 2rem;
+    }
+
+    body{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    #iso_port{
+        position: absolute;
+        width: 44rem;
+        top: 30%;
+        left: 7rem;
+    }
+    #isotipo{
+        display: block;
+        width: 10rem;
+        position: absolute;
+        top: 1rem;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    #container{
+        display: flex;
+        overflow-y: scroll;
+        flex-direction: column;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    #contenedor_bienvenida{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 2rem;
+        margin-left: 0.5rem;
+        height: 25%;
+    }
+
+    nav{
+        display: flex;
+        flex-direction: column;
+        align-items:center;
+        justify-content: center;
+        position: absolute;
+        left: 1%;
+        top: 37%;
+        border: solid;
+        border-radius: 1rem;
+        height: 10.5rem;
+        overflow: hidden;
+        width: 2.6rem;
+    
+    }
+
+    nav>div{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        list-style: none;
+    }
+
+    nav>div>div{
+        display: flex;  
+        align-items: center;
+        justify-content: center;
+        padding: .5rem;
+        border-radius: .5rem;
+    }
+
+    img{
+        width: 1.5rem;
+    }
+
+    .study{
+        width: 1.7rem;
+        height: 2rem;
+        margin-top: -.3rem;
+    }
+
+    .knoledge{
+        width: 1.5rem;
+        margin-top: -.25rem;
+    }
+
+    .intro{
+        width: 1.5rem;
+    }
+    #portada{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 80%;
+        height: 40%;
+        margin-top: 5rem;
+    }
+
+    #pelis{
+        display: flex;
+        flex-wrap: wrap;
+        /* border: solid; */
+        width: 80vw;
+        /* margin-left: .4rem; */
+        align-items: center;
+        justify-content: center;
+        height: fit-content;
+        padding: 0.5rem;
+        overflow-y: scroll;
+    }
+    #post_container{
+        position: relative;
+        display: inline-block;
+        /* margin-top: 8rem; */
+        /* margin-bottom: -5rem; */
+        align-items: center;
+        justify-content: center;
+        border: 3px solid;
+        border-radius: 1rem;
+        width: 8rem;
+        height: 10rem;
+        overflow: hidden;
+        margin-left: .2rem;
+        margin-top: .3rem;
+    }
+    #post_container_serie{
+        position: relative;
+        display: inline-block;
+        /* margin-top: 8rem; */
+        /* margin-bottom: -5rem; */
+        align-items: center;
+        justify-content: center;
+        border: 3px solid;
+        border-radius: 1rem;
+        width: 8rem;
+        height: 10rem;
+        overflow: hidden;
+        margin-left: .2rem;
+        margin-top: .3rem;
+    }
+    #user_name{
+        margin-bottom: -10rem;
+        padding: 3rem;
+    }
+    .post_photo{
+        display: flex;
+        width: -webkit-fill-available;
+        left: 50%;
+        transform: translateY(-50%);
+        margin-top: 60%;
+    }
+
+    #default{
+        width: 50rem;
+        margin-top: -1rem;
+        margin-left: 5rem;
+    }
+
+    .highlight {
+        background-color: yellow;
+    }
+    #dropdown {
+        top: 43%;
+        position: absolute;
+        border: 1px solid #ccc;
+        background: white;
+        max-width: 13rem;
+        height: max-content;
+        display: none;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    #dropdown li {
+        padding: 7px;
+        cursor: pointer;
+    }
+    #dropdown li:hover {
+        background: #f0f0f0;
+    }
+
+    @media(max-width: 997px){
+    #default{
+        width: 35rem;
+    }
+
+    #iso_port{
+        width: 30rem;
+        top: 30%;
+        left: 5rem;
+    }
+    }
+
+    @media(max-width: 700px){
+    #default{
+        width: 20rem;
+        margin-left: 1.5rem;
+    }
+    #iso_port{
+        width: 20rem;
+        top: 30%;
+        left: 5rem;
+    }
+        #contenedor_bienvenida{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 2rem;
+        margin-left: 0.5rem;
+        height: 25%;
+    }
+    }
+
+    @media(max-width: 550px){
+    #contenedor_bienvenida{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 2rem;
+        margin-left: 0.5rem;
+        height: 25%;
+    }
+
+    #iso_port{
+        width: 20rem;
+        top: 35%;
+        left: 1rem;
+    }
+    #back_pic{
+        width: 100%;
+        height: 50%;
+        border-radius: 2rem;
+    }
+        nav{
+        left: 1%;
+        top: auto;
+        bottom: 1%;
+        height: 2.6rem;
+        width: 10.5rem;
+        z-index: 1;
+        left: 50%;
+        transform: translateX(-50%);
+        background: white;
+    }
+
+    nav>div{
+        flex-direction: row;
+    }
+
+    .study{
+        margin-top: .0rem;
+    }
+
+    .knoledge{
+        margin-top: .1rem;
+    }
+
+    .intro{
+        width: 1.5rem;
+    }
+    #pelis{
+        width: 100vw;
+    }
+
+    }

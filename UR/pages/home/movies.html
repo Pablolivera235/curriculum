@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNRECORD | Películas</title>
+    <link rel="icon" href="../../assets/icono.png" type="image/x-icon">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="manifest" href="../../../manifest.json">
+    <style>
+        body {
+            visibility: visible !important;
+        }
+
+        #loading-screen {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body class="dark">
+    <!-- Pantalla de carga -->
+    <div id="loading-screen">
+        <img id="loading" style="width: 6rem;" src="../../assets/icono_dark.png" alt="Cargando...">
+        <h4 style="opacity: 50%; color: gray; position: fixed; bottom: 5rem; font-size: 1rem;">by Pablo Olivera</h4>
+    </div>
+
+    <header>
+        <img id="buscar" src="../../assets/dark/search.png" alt="Buscar">
+        <img id="isotipo" src="../../assets/isotipo_dark.png" alt="UNRECORD Logo">
+        <form id="form_search" action="#" style="display: none;">
+            <input type="search" id="search" placeholder="Buscar películas o series...">
+            <ul id="dropdown"></ul>
+        </form>
+        <div id="perfil_container" style="position: absolute; right: 3%; top: 1.5%;">
+            <img id="foto_perfil" src="../../assets/Perfiles/default.png" alt="Perfil"
+                style="width: 2.3rem; border-radius: 50%;">
+            <img id="verificado" src="../../assets/Perfiles/Verificado.png" alt="Verificado"
+                style="display:none; position: absolute; bottom: 0; right: 0; width: 1rem;">
+        </div>
+    </header>
+
+    <nav>
+        <div>
+            <div><img src="../../assets/home-white.png" alt="Home" title="Inicio" onclick="location.href='./home.html'">
+            </div>
+            <div class="active"><img class="intro" src="../../assets/video-dark.png" alt="Películas" title="Películas">
+            </div>
+            <div><img class="study" onclick="location.href='./series.html'" src="../../assets/series.png" alt="Series"
+                    title="Series"></div>
+            <div><img class="knoledge" onclick="location.href='../discover.html'" src="../../assets/Descubrir.png"
+                    alt="Descubrir" title="Descubrir"></div>
+        </div>
+        <div id="div-fav"><img id="fav_ico" onclick="location.href='./favoritos.html'" src="../../assets/star.png"
+                alt="Fav" title="Favs"></div>
+    </nav>
+
+    <div id="container">
+        <main id="pelis">
+            <div id="contenedor_bienvenida">
+                <img id='favs' src="../../assets/movies_isotipo.png" alt="Películas"
+                    style="max-width: 15rem; margin-bottom: 1rem;">
+            </div>
+
+            <!-- Grilla Principal solo para Películas -->
+            <div id="seriesGrid"
+                style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; width: 100%;">
+                <!-- Dynamic grid -->
+            </div>
+        </main>
+    </div>
+
+    <div id="contenido"></div>
+
+    <script src="../../bd/usuarios.js"></script>
+    <script src="../../bd/series.js"></script>
+    <script src="../../bd/capitulos.js"></script>
+    <script src="../../bd/perfil.js"></script>
+    <script src="../../bd/favoritos.js"></script>
+    <script src="./script.js"></script>
+
+    <script>
+        function renderMovies() {
+            const grid = document.getElementById('seriesGrid');
+            if (typeof series !== 'undefined') {
+                grid.innerHTML = '';
+                // Filtramos por tipo "pelicula" exactamente
+                const movies = series.filter(item => item.tipo === 'pelicula')
+                    .sort((a, b) => a.nombre.localeCompare(b.nombre));
+
+                movies.forEach(item => {
+                    const card = document.createElement('div');
+                    card.className = 'post_container';
+                    card.style.cursor = 'pointer';
+                    card.innerHTML = `<img class="post_photo" src="${item.poster}" alt="${item.nombre}" onerror="this.src='../../assets/icono.png'">`;
+
+                    card.onclick = () => window.abrirModalSerie(item.id);
+                    grid.appendChild(card);
+                });
+            }
+        }
+
+        window.addEventListener('load', () => {
+            renderMovies();
+            const user = JSON.parse(localStorage.getItem('currentUser'));
+            if (user) {
+                if (typeof perfil !== 'undefined') {
+                    const up = perfil.find(p => p.id_usuario === user.id);
+                    if (up) {
+                        document.getElementById('foto_perfil').src = "../../assets/Perfiles/" + up.Img;
+                        if (up.Verificado) document.getElementById('verificado').style.display = 'block';
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
