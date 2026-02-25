@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNRECORD | Reproduciendo</title>
+    <link rel="icon" href="../../assets/icono.png" type="image/x-icon">
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        #video-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        video {
+            max-width: 100%;
+            max-height: 100%;
+            outline: none;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+        }
+
+        #back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.3s ease, background 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #back-btn:hover {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        #back-btn img {
+            width: 24px;
+            height: 24px;
+            filter: invert(1);
+        }
+
+        #video-info {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: white;
+            z-index: 10;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            pointer-events: none;
+            opacity: 0.8;
+            transition: opacity 0.5s ease;
+        }
+
+        #video-container:hover #video-info {
+            opacity: 1;
+        }
+
+        #video-info h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 300;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="back-btn" onclick="window.history.back()">
+        <img src="../../assets/back-black.png" alt="Volver">
+    </div>
+
+    <div id="video-container">
+        <video id="player" controls autoplay>
+            <source id="video-source" src="" type="video/mp4">
+            Tu navegador no soporta video HTML5.
+        </video>
+
+        <div id="video-info">
+            <h1 id="movie-title">Cargando...</h1>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const movieUrl = localStorage.getItem('movieUrl');
+            const epName = localStorage.getItem('epname');
+            const serieId = localStorage.getItem('serieid');
+            const player = document.getElementById('player');
+            const source = document.getElementById('video-source');
+            const title = document.getElementById('movie-title');
+
+            if (movieUrl) {
+                // Adjust path if necessary. Local URLs are often relative to the page.
+                // In script.js we saved the URL as it was in capitulos.js.
+                // If the video is in ../movies/..., and this file is in pages/home/,
+                // then ../movies/... should be Correct.
+                source.src = movieUrl;
+                player.load();
+
+                if (epName) {
+                    title.textContent = epName;
+                } else {
+                    title.textContent = "Reproduciendo...";
+                }
+            } else {
+                alert("No se encontró la URL del video.");
+                window.history.back();
+            }
+        });
+    </script>
+</body>
+
+</html>

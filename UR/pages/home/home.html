@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNRECORD | Home</title>
+    <link rel="icon" href="../../assets/icono.png" type="image/x-icon">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="manifest" href="../../../manifest.json">
+    <style>
+        /* Estilos adicionales para componentes */
+        .ios-toast {
+            position: fixed;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #0c2c3c;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            gap: 12px;
+            transition: top 0.4s ease;
+            z-index: 9999;
+            min-width: 280px;
+        }
+
+        .ios-toast.show {
+            top: 20px;
+        }
+
+        .ios-toast img {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+        }
+
+        .toast-text {
+            flex: 1;
+            color: white;
+        }
+
+        .toast-text h4 {
+            margin: 0 0 4px;
+            font-size: 16px;
+        }
+
+        .toast-text p {
+            margin: 0;
+            font-size: 13px;
+            color: #ccc;
+        }
+
+        .install-btn {
+            background: #007aff;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 10px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body class="dark" style="visibility: visible !important;">
+    <!-- Pantalla de carga -->
+    <div id="loading-screen">
+        <img id="loading" style="width: 6rem;" src="../../assets/icono_dark.png" alt="Cargando...">
+        <h4 style="opacity: 50%; color: gray; position: fixed; bottom: 5rem; font-size: 1rem;">by Pablo Olivera</h4>
+    </div>
+
+    <!-- Notificación Toast -->
+    <div class="ios-toast" id="toast">
+        <img src="../../assets/icono.png" alt="App Logo" />
+        <div class="toast-text">
+            <h4>UnRecord</h4>
+            <p>Disponible en Android, Windows y Linux</p>
+        </div>
+        <button class="install-btn" onclick="window.location.href = '#'">Instalar</button>
+    </div>
+
+    <header>
+        <img id="buscar" src="../../assets/dark/search.png" alt="Buscar">
+        <img id="isotipo" src="../../assets/isotipo_dark.png" alt="UNRECORD Logo">
+        <form id="form_search" action="#" style="display: none;">
+            <input type="search" id="search" placeholder="Buscar películas o series...">
+            <ul id="dropdown"></ul>
+        </form>
+        <div id="perfil_container" style="position: absolute; right: 3%; top: 1.5%;">
+            <img id="foto_perfil" src="../../assets/Perfiles/default.png" alt="Perfil"
+                style="width: 2.3rem; border-radius: 50%;">
+            <img id="verificado" src="../../assets/Perfiles/Verificado.png" alt="Verificado"
+                style="display:none; position: absolute; bottom: 0; right: 0; width: 1rem;">
+        </div>
+    </header>
+
+    <nav>
+        <div>
+            <div class="active"><img src="../../assets/home-black.png" alt="Home" title="Inicio"
+                    onclick="location.href='./home.html'"></div>
+            <div><img class="intro" onclick="location.href='./movies.html'" src="../../assets/video.png" alt="Películas"
+                    title="Películas"></div>
+            <div><img class="study" onclick="location.href='./series.html'" src="../../assets/series.png" alt="Series"
+                    title="Series"></div>
+            <div><img class="knoledge" onclick="location.href='../discover.html'" src="../../assets/Descubrir.png"
+                    alt="Descubrir" title="Descubrir"></div>
+        </div>
+        <div id="div-fav"><img id="fav_ico" onclick="location.href='./favoritos.html'" src="../../assets/star.png"
+                alt="Fav" title="Favs"></div>
+    </nav>
+
+    <div id="container">
+        <main id="pelis">
+            <div id="contenedor_bienvenida">
+                <img id='default' src="../../assets/dark/welcome.png" alt="Bienvenido" style="max-width: 20rem;">
+                <h1 id="user_name">Hola, Usuario</h1>
+            </div>
+
+            <div id="seriesGrid"
+                style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; width: 100%;">
+                <!-- Dynamic grid -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal overlay container -->
+    <div id="contenido"></div>
+
+    <script src="../../bd/usuarios.js"></script>
+    <script src="../../bd/series.js"></script>
+    <script src="../../bd/capitulos.js"></script>
+    <script src="../../bd/perfil.js"></script>
+    <script src="../../bd/favoritos.js"></script>
+    <script src="./script.js"></script>
+
+    <script>
+        // Esta función se encarga de mostrar TODAS las series y películas en el Home
+        function renderHome() {
+            const grid = document.getElementById('seriesGrid');
+            if (typeof series !== 'undefined') {
+                grid.innerHTML = '';
+                // Ordenar alfabéticamente
+                const items = [...series].sort((a, b) => a.nombre.localeCompare(b.nombre));
+
+                items.forEach(item => {
+                    const card = document.createElement('div');
+                    card.className = 'post_container';
+                    card.style.cursor = 'pointer';
+                    // Usamos item.poster como me pediste
+                    card.innerHTML = `<img class="post_photo" src="${item.poster}" alt="${item.nombre}" onerror="this.src='../../assets/icono.png'">`;
+
+                    // Al hacer clic, abre el modal de detalles
+                    card.onclick = () => window.abrirModalSerie(item.id);
+
+                    grid.appendChild(card);
+                });
+            }
+        }
+
+        // Al terminar de cargar la ventana
+        window.addEventListener('load', () => {
+            renderHome();
+
+            // Actualizar interfaz con datos de usuario
+            const user = JSON.parse(localStorage.getItem('currentUser'));
+            if (user) {
+                document.getElementById('user_name').textContent = "Hola, " + user.Usuarios;
+                if (typeof perfil !== 'undefined') {
+                    const up = perfil.find(p => p.id_usuario === user.id);
+                    if (up) {
+                        document.getElementById('foto_perfil').src = "../../assets/Perfiles/" + up.Img;
+                        if (up.Verificado) document.getElementById('verificado').style.display = 'block';
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
