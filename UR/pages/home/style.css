@@ -308,6 +308,8 @@ body.dark #ultemp {
 }
 
 #dropdown li {
+    display: flex;
+    align-items: center;
     padding: 8px 12px;
     cursor: pointer;
     font-weight: bold;
@@ -318,6 +320,10 @@ body.dark #ultemp {
     text-overflow: ellipsis;
     border-bottom: 1px solid #eee;
     /* Separador sutil */
+}
+
+#dropdown li span {
+    padding-left: 1rem;
 }
 
 #dropdown li:last-child {
