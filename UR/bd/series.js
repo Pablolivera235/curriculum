@@ -479,4 +479,13 @@ const series = [
         isotipo: null,
         tipo: "peliculas",
     },
+    {
+        id: 66,
+        nombre: "Casados con Hijos",
+        descripcion: "Comedia - 2005\r\nLa vida de los Argento, una familia de clase media baja, se ve alterada por las situaciones que enfrentan en su día a día.",
+        poster: "../../assets/posters/casados_poster.webp",
+        isotipo: null,
+        tipo: "serie",
+    },
 ];
+
