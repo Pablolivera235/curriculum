@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./assets/icono.png" type="image/x-icon">
+    <title>UNRECORD | Registro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #foto_perfil {
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            gap: 1rem;
+            text-align: center;
+            border-radius: .5rem;
+            height: 2rem;
+            margin-left: .5rem;
+        }
+
+        #subir {
+            width: 1.5rem;
+        }
+
+        #container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        #container>div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: solid;
+            border-radius: 1rem;
+            width: 15rem;
+            height: 20rem;
+        }
+
+        #container>img {
+            width: 8rem;
+        }
+
+        #container>div>img {
+            width: 6rem;
+            margin-top: -2rem;
+            padding: 1.5rem;
+        }
+
+        input {
+            text-align: center;
+            border: solid;
+            border-radius: .5rem;
+            height: 2rem;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: .3rem;
+            width: min-content;
+        }
+
+        #send {
+            width: 8rem;
+            margin-top: .5rem;
+        }
+
+        body.dark {
+            background: #121212;
+            color: #E0E0E0;
+        }
+
+        body.light {
+            background: #F5F5F5;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body class="dark">
+    <div id="container">
+        <img onclick="redirect()" src="./assets/isotipo_dark.png" id="logo" alt="">
+        <br>
+        <div>
+            <form id="register-form">
+                <input type="text" placeholder="Usuario" name="user" required>
+                <input type="password" placeholder="Contraseña" name="pass" required>
+                <input type="email" placeholder="Correo" name="mail" required>
+                <div id="foto_perfil">
+                    <p>Elegir Foto</p>
+                    <img id="subir" src="./assets/Subir.png" alt="Subir archivo"
+                        onclick="document.getElementById('fileInput').click();">
+                </div>
+                <input type="file" id="fileInput" name="archivo" style="display: none;">
+                <input type="submit" value="Registrarse" id="send">
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function redirect() {
+            window.location.href = "./index.html";
+        }
+
+        // Init theme
+        function getCookie(name) {
+            const cookies = document.cookie.split('; ');
+            for (let i = 0; i < cookies.length; i++) {
+                const [cookieName, cookieValue] = cookies[i].split('=');
+                if (cookieName === name) {
+                    return cookieValue;
+                }
+            }
+            return null;
+        }
+        const initialTheme = getCookie('theme') || 'dark';
+        document.body.className = initialTheme;
+        document.getElementById('logo').src = initialTheme === 'dark' ? './assets/isotipo_dark.png' : './assets/isotipo.png';
+
+        document.getElementById('register-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const userVal = this.user.value;
+            const passVal = this.pass.value;
+            const mailVal = this.mail.value;
+
+            // Mock registration: store in localStorage
+            let localUsers = JSON.parse(localStorage.getItem('localUsers') || '[]');
+            localUsers.push({
+                id: Date.now(),
+                Usuarios: userVal,
+                Pass: passVal,
+                Correo: mailVal
+            });
+            localStorage.setItem('localUsers', JSON.stringify(localUsers));
+
+            alert('Registro exitoso (Simulado). Ahora puedes iniciar sesión.');
+            window.location.href = './index.html';
+        });
+    </script>
+</body>
+
+</html>

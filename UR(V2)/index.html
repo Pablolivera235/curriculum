@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./assets/icono.png" type="image/x-icon">
+    <link rel="manifest" href="./manifest.json">
+    <title>UNRECORD | Inicio</title>
+    <script src="./bd/usuarios.js"></script>
+    <script src="./scripts/main.js" defer></script>
+    <link rel="stylesheet" href="./styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        #container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        #container>div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 1rem;
+            width: 15rem;
+            height: 20rem;
+        }
+
+        #container>div>img {
+            width: 10rem;
+            margin-top: -2rem;
+            margin-left: .5rem;
+            padding: 1.5rem;
+        }
+
+        input {
+            text-align: center;
+            border: solid;
+            border-radius: .5rem;
+            height: 2rem;
+            outline: none;
+        }
+
+        /* 🎭 Modo Oscuro */
+        body.dark {
+            background: #121212;
+            color: #E0E0E0;
+        }
+
+        .dark #container>div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 1rem;
+            width: 15rem;
+            height: 20rem;
+        }
+
+        .dark input {
+            text-align: center;
+            border-radius: .5rem;
+            height: 2rem;
+            background: rgb(45, 45, 45, 255);
+            border: 1px solid #444;
+            color: #E0E0E0;
+        }
+
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus,
+        input:-webkit-autofill:active,
+        input:focus,
+        input:active {
+            background: rgb(45, 45, 45) !important;
+            color: #E0E0E0 !important;
+            border-color: #508DD4;
+            box-shadow: none !important;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: .3rem;
+            width: min-content;
+        }
+
+        #send {
+            width: 8rem;
+            margin-top: .5rem;
+        }
+
+        /* ☀️ Modo Claro */
+        body.light {
+            background: #F5F5F5;
+            color: #333;
+        }
+
+        .light input {
+            text-align: center;
+            border: solid;
+            border-radius: .5rem;
+            height: 2rem;
+        }
+
+        /* 🎛️ Botón de cambio de tema */
+        #theme-toggle {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            padding: 0.5rem;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-weight: bold;
+            background: #508DD4;
+            color: white;
+            transition: 0.3s;
+        }
+
+        #theme-toggle:hover {
+            background: #4C9AFF;
+        }
+    </style>
+</head>
+
+<body class="dark"> <!-- Default to dark, will be updated by JS -->
+
+    <div id="container">
+        <div>
+            <img id="logo" src="./assets/isotipo_dark.png" alt="">
+
+            <form id="login-form">
+                <input type="text" placeholder="Usuario" name="user" required>
+                <input type="password" placeholder="Contraseña" name="pass" required>
+                <input type="submit" value="Iniciar Sesión" id="send">
+                <a style="text-decoration: none; font-weight: bolder; color: #81A1C1; font-size: .9rem; margin-top: .2rem;"
+                    href="./registro.html">Registrarse</a>
+            </form>
+
+            <button id="theme-toggle">🌙 / ☀️</button>
+        </div>
+    </div>
+
+    <script>
+        // Init theme
+        function getCookie(name) {
+            const cookies = document.cookie.split('; ');
+            for (let i = 0; i < cookies.length; i++) {
+                const [cookieName, cookieValue] = cookies[i].split('=');
+                if (cookieName === name) {
+                    return cookieValue;
+                }
+            }
+            return null;
+        }
+
+        const initialTheme = getCookie('theme') || 'dark';
+        document.body.className = initialTheme;
+        document.getElementById('logo').src = initialTheme === 'dark' ? './assets/isotipo_dark.png' : './assets/isotipo.png';
+
+        // Theme toggle
+        document.getElementById("theme-toggle").addEventListener("click", function () {
+            let newTheme = document.body.classList.contains("dark") ? "light" : "dark";
+            document.body.className = newTheme;
+            document.getElementById("logo").src = newTheme === "dark" ? "./assets/isotipo_dark.png" : "./assets/isotipo.png";
+            document.cookie = `theme=${newTheme}; path=/; max-age=31536000`;
+        });
+
+        // Login Logic
+        document.getElementById('login-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const userVal = this.user.value;
+            const passVal = this.pass.value;
+
+            if (typeof usuarios !== 'undefined') {
+                const user = usuarios.find(u => u.Usuarios === userVal && u.Pass === passVal);
+                if (user) {
+                    localStorage.setItem('currentUser', JSON.stringify(user));
+                    window.location.href = './pages/home/home.html';
+                } else {
+                    alert('Usuario o contraseña incorrectos.');
+                }
+            } else {
+                alert('Error al cargar la base de datos local.');
+            }
+        });
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,337 @@
+donation-banner.js:16 donation-banner loaded Object
+VM107 s-01-e-06-bardo-en-lo-de-dardo-nf-480p:7 NotSupportedError: Failed to execute 'define' on 'CustomElementRegistry': the name "modal-template" has already been used with this registry
+    at customElements.define (VM107 s-01-e-06-bardo-en-lo-de-dardo-nf-480p:5:38)
+    at custom-element.js:2:58
+    at custom-element.js:2:70
+    at P (tslib.mjs:2:1247)
+    at modal-manager.mjs:261:61
+    at play.js:2866:38
+customElements.define @ VM107 s-01-e-06-bardo-en-lo-de-dardo-nf-480p:7
+VM107 s-01-e-06-bardo-en-lo-de-dardo-nf-480p:7 NotSupportedError: Failed to execute 'define' on 'CustomElementRegistry': the name "modal-manager" has already been used with this registry
+    at customElements.define (VM107 s-01-e-06-bardo-en-lo-de-dardo-nf-480p:5:38)
+    at custom-element.js:2:58
+    at custom-element.js:2:70
+    at P (tslib.mjs:2:1247)
+    at modal-manager.mjs:298:246
+    at play.js:2866:38
+customElements.define @ VM107 s-01-e-06-bardo-en-lo-de-dardo-nf-480p:7
+jquery.mjs:5 [Intervention] Slow network is detected. See https://www.chromestatus.com/feature/5636954674692096 for more details. Fallback font will be used while loading: https://archive.org/includes/fonts/Iconochive-Regular.woff
+bootstrap.mjs:3 [npm] deprecated bootstrap@3.4.1: This version of Bootstrap is no longer supported. Please upgrade to the latest version.
+(anonymous) @ bootstrap.mjs:3
+play.js:1487 PANELS COUNT 14
+(anonymous) @ play.js:1487
+play.js:1487 PANELS COUNT 14
+(anonymous) @ play.js:1487
+play.js:1487 PANELS COUNT 14
+(anonymous) @ play.js:1487
+play.js:1487 PANELS COUNT 14
+(anonymous) @ play.js:1487
+play.js:1487 PANELS COUNT 14
+(anonymous) @ play.js:1487
+play.js:1487 PANELS COUNT 14
+(anonymous) @ play.js:1487
+play.js:1487 PANELS COUNT 14
+(anonymous) @ play.js:1487
+play.js:1487 PANELS COUNT 14
+(anonymous) @ play.js:1487
+play.js:1487 PANELS COUNT 14
+(anonymous) @ play.js:1487
+play.js:1487 PANELS COUNT 14
+(anonymous) @ play.js:1487
+play.js:1487 PANELS COUNT 14
+(anonymous) @ play.js:1487
+play.js:1487 PANELS COUNT 14
+(anonymous) @ play.js:1487
+play.js:1487 PANELS COUNT 14
+(anonymous) @ play.js:1487
+play.js:1487 PANELS COUNT 14
+(anonymous) @ play.js:1487
+play.js:1487 PANELS COUNT 14
+(anonymous) @ play.js:1487
+play.js:1487 PANELS COUNT 14
+(anonymous) @ play.js:1487
+play.js:1487 PANELS COUNT 14
+(anonymous) @ play.js:1487
+play.js:1487 PANELS COUNT 14
+(anonymous) @ play.js:1487
+play.js:1487 PANELS COUNT 14
+(anonymous) @ play.js:1487
+play.js:1487 PANELS COUNT 14
+(anonymous) @ play.js:1487
+play.js:1487 PANELS COUNT 14
+(anonymous) @ play.js:1487
+play.js:1487 PANELS COUNT 14
+(anonymous) @ play.js:1487
+play.js:1487 PANELS COUNT 14
+(anonymous) @ play.js:1487
+play.js:1487 PANELS COUNT 14
+(anonymous) @ play.js:1487
+play.js:1487 PANELS COUNT 14
+(anonymous) @ play.js:1487
+play.js:1487 PANELS COUNT 14
+(anonymous) @ play.js:1487
+play.js:1487 PANELS COUNT 14
+(anonymous) @ play.js:1487
+play.js:1487 PANELS COUNT 14
+(anonymous) @ play.js:1487
+play.js:1487 PANELS COUNT 14
+(anonymous) @ play.js:1487
+play.js:1487 PANELS COUNT 14
+(anonymous) @ play.js:1487
+play.js:1487 PANELS COUNT 14
+(anonymous) @ play.js:1487
+play.js:1487 PANELS COUNT 14
+(anonymous) @ play.js:1487
+play.js:1487 PANELS COUNT 14
+(anonymous) @ play.js:1487
+play.js:1487 PANELS COUNT 14
+(anonymous) @ play.js:1487
+(function() {
+    console.log("%c--- Extractor de Enlaces de Casados con Hijos ---", "color: #e50914; font-weight: bold; font-size: 14px;");
+    
+    // Obtenemos todos los enlaces de la página
+    const links = Array.from(document.querySelectorAll('a'));
+    
+    // Filtramos los que terminan en .ia.mp4 (recomendados para audio)
+    let targets = links
+        .map(a => a.href)
+        .filter(href => href.endsWith('.ia.mp4'));
+
+    // Si no hay .ia.mp4, buscamos los .mp4 normales
+    if (targets.length === 0) {
+        console.log("%cNo se encontraron .ia.mp4, listando .mp4 originales...", "color: orange;");
+        targets = links
+            .map(a => a.href)
+            .filter(href => href.endsWith('.mp4'));
+    }
+
+    // Eliminamos duplicados y ordenamos
+    const uniqueLinks = [...new Set(targets)].sort();
+
+    if (uniqueLinks.length > 0) {
+        console.log("%c\n¡Enlaces encontrados!", "color: green; font-weight: bold;");
+        console.log(uniqueLinks.join('\n'));
+        console.log(`\nTotal: ${uniqueLinks.length} capítulos.`);
+    } else {
+        console.log("%cNo se encontraron videos en esta página. Asegúrate de estar en la vista de 'Download Options' o 'Show All'.", "color: red;");
+    }
+})();
+
+VM265:2 --- Extractor de Enlaces de Casados con Hijos ---
+VM265:24 ¡Enlaces encontrados!
+VM265:25 https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-001.%20Hogar%20dulce%20hogar%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-002.%20Superg%C3%ADa%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-003.%20Un%20tiro%20al%20aire%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-004.%20Te%20lo%20digo%20por%20mi%20bien%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-005.%20Toro%20Viejo%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-006.%20Bardo%20en%20lo%20de%20Dardo%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-007.%20Pepe%20toma%20cartas%20en%20el%20asunto%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-008.%20La%20primera%20trabajadora%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-009.%20Las%20promotogas%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-010.%20Pepesadillas%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-011.%20Lo%20Qui%C3%A9n%20es%20el%20jefe%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-012.%20Calentitos%20los%20panchos%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-013.%20Mar%20de%20las%20Pompas%20f%C3%BAnebres%20%28Parte%201%29%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-014.%20Mar%20de%20las%20Pompas%20f%C3%BAnebres%20%28Parte%202%29%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-015.%20Tesoro%20m%C3%ADo%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-016.%20Todos%20los%20perros%20van%20en%20celo%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-017.%20Arde%20Troya%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-018.%20Los%20Argento%20pierden%20la%20l%C3%ADnea%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-019.%20Los%20caballos%20las%20prefieren%20rubias%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-020.%20Como%20bola%20sin%20manija%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-021.%20Dardito%20bigotito%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-022.%20La%20venganza%20ser%C3%A1%20terrible%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-023.%20Gracias%20a%20la%20Viv%C3%AD%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-023.%20Gracias%20a%20la%20Vivi%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-024.%20Los%20exterminators%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-025.%20Me%20quiere%2C%20no%20me%20quiere%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-026.%20Dardo%2C%20el%20imparable%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-027.%20El%20juego%20de%20las%20l%C3%A1grimas%20%28Parte%201%29%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-028.%20El%20juego%20de%20las%20l%C3%A1grimas%20%28Parte%202%29%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-029.%20Billetera%20mata%20gal%C3%A1n%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-030.%20El%20libro%20de%20la%20buena%20memoria%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-031.%20Sandro%20sudario%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-032.%20Ese%20es%20mi%20amigo%20el%20puma%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-033.%20Un%20inodoro%20para%20Pepe%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-034.%20El%20cumplea%C3%B1os%20de%20Moni%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-035.%20S%C3%A1bado%20busarda%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-036.%20Ese%20abogado%20del%20diablo%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-037.%20El%20sue%C3%B1o%20de%20la%20gitana%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-038.%20La%20peluquer%C3%ADa%20de%20Don%20Argento%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-039.%20La%20cena%20de%20los%20tontos%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-040.%20Fantas%C3%ADas%20avivadas%20de%20ayer%20y%20hoy%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-041.%20Recursos%20inhumanos%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-042.%20Un%20golpe%20bajo%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-043.%20Casa%20tomada%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-044.%20Deus%20ex-machina%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-045.%20Uni%C3%B3n%20vecinal%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-046.%20La%20ventana%20indiscreta%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-047.%20Un%20%C3%A1ngel%20para%20tu%20soledad%20%28Parte%201%29%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-048.%20Un%20%C3%A1ngel%20para%20tu%20soledad%20%28Parte%202%29%20%5B1080p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-049.%20Mente%20insana%20in%20corpore%20insano%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-050.%20Mondo%20Cane%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-051.%20La%20ley%20de%20la%20caries%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-052.%20Tristeza%20nao%20tem%20fim%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-053.%20La%20gansa%20de%20la%20fortuna%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-054.%200-800-Nabo%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-055.%20Esquizoargento%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-056.%20El%20zoo-il%C3%B3gico%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-057.%20El%20zapatero%20en%20el%20tejado%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-058.%20Los%20rubios%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-059.%20Asignaturas%20pen-dientes%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-060.%20El%20adi%C3%B3s%20de%20Dardo%20%28Parte%201%29%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-061.%20El%20adi%C3%B3s%20de%20Dardo%20%28Parte%202%29%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-062.%20Un%20Argento%20independiente%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-063.%20Dardo%2C%20el%20fugitivo%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-064.%20Todo%20por%20la%20Mosca%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-065.%20Empepeorando%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-066.%20Los%20Argento%20meten%20el%20perro%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-067.%20Los%20de%20afuera%20tiran%20palos%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-068.%20Sana%2C%20sana%20colita%20de%20rana%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-069.%20Cultura%20y%20calentura%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-070.%20El%20beb%C3%A9%20m%C3%A1s%20caro%20del%20mundo%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-071.%20Hay%20alguien%20ah%C3%AD%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-072.%20La%20vuelta%20de%20Dardo%20%28Parte%201%29%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-073.%20La%20vuelta%20de%20Dardo%20%28Parte%202%29%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-074.%20El%20padrino%20Argento%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-075.%20Yo%20soy%20el%20Pepe%20de%20la%20gente%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-076.%20Crees%20que%20soy%20sexy%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-077.%20El%20ba%C3%B1o%20es%20el%20mejor%20amigo%20del%20hombre%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-078.%20Todo%20por%20un%20vinilo%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-079.%20Paola%2C%20la%20reina%20de%20las%20salchichas%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-080.%20Pa%C3%B1ales%20y%20videos%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-081.%20La%20separaci%C3%B3n%20%28Parte%201%29%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-082.%20La%20separaci%C3%B3n%20%28Parte%202%29%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-083.%20La%20separaci%C3%B3n%20%28Parte%203%29%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-084.%20La%20separaci%C3%B3n%20%28Parte%204%29%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-085.%20Los%20Argento%20en%20el%20hipermercado%20%28Parte%201%29%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-086.%20Los%20Argento%20en%20el%20hipermercado%20%28Parte%202%29%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-087.%20Fatiga%2C%20el%20semental%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-088.%20Los%20ni%C3%B1os%20que%20escriben%20en%20el%20cielo%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-089.%20Qui%C3%A9n%20llam%C3%B3%20a%20la%20cig%C3%BCe%C3%B1a%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-090.%20Las%20aventuras%20de%20MioPepe%20Argento%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-091.%20Argento%20que%20bien%20se%20TV%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-092.%20El%20inspector%20Pepe%20y%20el%20caso%20del%20Ojo%20del%20Fara%C3%B3n%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-093.%20El%20testamento%20de%20Pepe%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-094.%20El%20deporte%20y%20A%C3%B1anga%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-095.%20El%20cumplea%C3%B1os%20de%20Coqui%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-096.%20Rockeando%20en%20lo%20de%20los%20Argento%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-097.%20Moni%20pitonisa%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-098.%20Un%20natalicio%20para%20el%20hospicio%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-099.%20Un%20Argento%20fuera%20de%20estaci%C3%B3n%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-100.%20100%25%20Argento%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-101.%20Paola%2C%20la%20empleada%20del%20mes%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-102.%20La%20venganza%20del%20muerto%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-103.%20Un%20Argento%20suelto%20en%20la%20universidad%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-104.%20El%20debut%20de%20Coqui%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-105.%20El%20debut%20y%20despedida%20de%20Coqui%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-106.%20Los%20Argento%20fraudulentos%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-107.%20Todo%20preso%20es%20pol%C3%ADtico%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-108.%20Un%20Pepe%20de%20historieta%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-109.%20Tiempo%20de%20calientes%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-110.%20Una%20de%20piratas%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-111.%20Viejos%20son%20los%20trapos%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-112.%20Un%20golpe%2C%20una%20palpada%20y%20enseguida%20volvemos%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-113.%20Cine%20de%20super%20acci%C3%B3n%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-114.%20Rapipepe%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-115.%20Los%20doce%20sueldos%20del%20pat%C3%ADbulo%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-116.%20Pepe%20est%C3%A1%20en%20oferta%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-117.%20Pepe%20Argento%2C%20el%20encapotado%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-118.%20Si%20quiere%20saber%20qu%C3%A9%20pasa%20en%20este%20cap%C3%ADtulo%2C%20apriete%201%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-119.%20Remoras%20y%20metrosexuales%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-120.%20El%20s%C3%A1tiro%20de%20la%20media%20tres%20cuartos%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-121.%20Canci%C3%B3n%20para%20mi%20muerte%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-122.%20El%20demonio%20matrimonio%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-123.%20El%20sexo%20sentido%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-124.%20Fatiga%20y%20el%20incre%C3%ADble%20Coqui%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-125.%20Pepe%20decapitado%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-126.%20Los%20celos%20de%20Pepe%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-127.%20La%20vida%20por%20un%20sill%C3%B3n%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-128.%20La%20manzana%20de%20la%20discordia%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-129.%20La%20venta%20del%20Chevy%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-130.%20Pepe%2C%20el%20rom%C3%A1ntico%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-131.%20El%20%C3%A1ngel%20del%20Abasto%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-132.%20Sexo%2C%20cola%20y%20rock%20and%20roll%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-133.%20Algo%20sabe%20Paola%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-134.%20Moni%20radioactiva%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-135.%20Durmiendo%20junto%20a%20la%20enemiga%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-136.%20Pepe%2C%20el%20jod%C3%B3n%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T1-137.%20El%20gran%20final%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-01.%20Pepe%20qu%C3%A9%20mal%20se%20te%20ve%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-02.%20El%20pozo%20de%20la%20infelicidad%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-03.%20Zapatero%20a%20tus%20zapatos%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-04.%20Pepe%2C%20el%20h%C3%A9roe%20del%20r%C3%A9gimen%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-05.%20Mi%20enfermedad%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-06.%20Doble%20vida%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-07.%20La%20cruz%20de%20Pepe%20Argento%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-08.%20Hard%20Gol%20Caf%C3%A9%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-09.%20Casa%20tomada%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-10.%20Esposo%20se%20alquila%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-11.%20Los%20buscadores%20del%20sexo%20perdido%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-12.%20Cenizas%20del%20para%C3%ADso%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-13.%20Mu%C3%B1eca%20brava%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-14.%20Una%20Moni%20%C3%BAltimo%20modelo%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-15.%20La%20epidemia%20Argento%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-16.%20Hasta%20que%20la%20suerte%20nos%20separe%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-17.%20El%20roland%20garr%C3%B3n%20de%20los%20Fuseneco%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-18.%20Pepe%2C%20el%20demoledor%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-19.%20Vidas%20cruzadas%20%5B480p%7D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-20.%20Poderosa%20Afrodita%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-21.%20La%20tormenta%20imperfecta%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-22.%20La%20mancha%20vor%C3%A1z%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-23.%20La%20%C3%A9poca%20de%20las%20cruzadas%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-24.%20La%20mucamita%20que%20dio%20el%20mal%20paso%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-25.%20Los%20invasores%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-26.%20El%20hijo%20de%20la%20exnovia%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-27.%20Il%20morto%20que%20ladra%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-28.%20Pepe%2C%20ratonazo%20de%20laboratorio%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-29.%20El%20deporte%20y%20el%20hambre%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-30.%20El%20imperfecto%20asesino%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-31.%20Como%20por%20arte%20de%20mafia%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-32.%20Sudor%20de%20Gavilanes%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-33.%20Moni%20en%20la%20cuarta%20dimensi%C3%B3n%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-34.%20Pepe%20en%20Pampa%20y%20la%20V%C3%ADa%20L%C3%A1ctea%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-35.%20Los%20cavadores%20del%20curro%20perdido%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-36.%20Juego%20de%20dados%2C%20juego%20de%20villanos%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-37.%20El%20cortito%20de%20Pepe%20Argento%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-38.%20Una%20filial%20para%20Pepe%20Argento%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-39.%20El%20duro%20rostro%20de%20la%20pol%C3%ADtica%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-40.%20La%20maldici%C3%B3n%20Argento%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-41.%20El%20D%C3%ADa%20de%20la%20Raza%20Argento%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-42.%20Rocky%20Argento%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-43.%20La%20selva%20de%20Moni%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-44.%20Ser%20o%20no%20ser%20Argento%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-45.%20El%20milagro%20Argento%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-46.%20La%20mafia%20canelones%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-47.%20Sobreviviendo%20a%20los%20Argento%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-48.%20Tom%C3%A1telo%20con%20soda%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-49.%20Vamos%20a%20la%20playa%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-50.%20Tigre%20suelto%2C%20vaca%20instalada%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-51.%20Dejad%20que%20los%20problemas%20vengan%20a%20Pepe%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-52.%20Cero%20cero%20Pepe%2C%20agente%20secreto%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-53.%20Las%20novicias%20rebeldes%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-54.%20Cuesti%C3%B3n%20de%20pesos...%20pesados%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-55.%20El%20conventillo%20de%20la%20culona%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-56.%20La%20jaula%20de%20los%20locos%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-57.%20La%20%C3%BAltima%20curda%20de%20los%20Fuseneco%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-58.%20Coqui%20rock%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-59.%20Estoy%20hecho%20un%20demonio%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-60.%20Un%20bum%20bum%20editorial%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-61.%20Enjauladas%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-62.%20Coqui%20de%20Am%C3%A9rica%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-63.%20Los%20Argento%20y%20el%20retiro%20involuntario%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-64.%20El%20mito%20de%20la%20corvina%20negra%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-65.%20Con%20el%20Chevy%20no%20se%20jode%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-66.%20La%20novia%20carbonizada%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-67.%20Un%20ladr%C3%B3n%20con%20cien%20a%C3%B1os%20de%20perd%C3%B3n%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-68.%20Adi%C3%B3s%20querido%20chivo%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-69.%20Una%20vieja%20traba%20familiar%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-70.%20Atrapados%20sin%20salida%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-71.%20Pepe%2C%20el%20bombero%20loco%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-72.%20Salven%20a%20las%20ballenas%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-73.%20La%20novena%20es%20la%20vencida%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-74.%20El%20regreso%20del%20muerto%20vivo%20%5B480p%5D.ia.mp4
+https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-75.%20El%20final%20%5B480p%5D.ia.mp4
+VM265:26 
+Total: 213 capítulos.
+undefined
