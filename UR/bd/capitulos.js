@@ -663,7 +663,7 @@ const capitulos = [
         nombre: null,
         info: null,
         caratula: null,
-        url: "https://s11.vimeos.net/hls2/02/00000/4id4rrxl612g_h/index-v1-a1.m3u8?t=3EuUHDYWzGP6b2-7mNwc8D4ZARIzQAe2aSyXeL60gnI&s=1772153967&e=43200&v=128056711&i=0.3&sp=0&r=e",
+        url: "https://vimeos.net/embed-4id4rrxl612g.html",
     },
     {
         id: 103,
@@ -3582,3 +3582,4 @@ const capitulos = [
         url: "https://archive.org/download/s-01-e-06-bardo-en-lo-de-dardo-nf-480p/T2-75.%20El%20final%20%5B480p%5D.ia.mp4",
     },
 ];
+
